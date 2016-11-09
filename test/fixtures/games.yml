@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attacker: 1
+  defender: 1
+  winner: 1
+  location: 1
+
+two:
+  attacker: 1
+  defender: 1
+  winner: 1
+  location: 1

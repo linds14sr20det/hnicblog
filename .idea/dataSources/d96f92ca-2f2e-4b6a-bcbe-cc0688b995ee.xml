@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Rails campaign_app: test">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
+    <database id="1" name="campaignapp_test">
+      <object-id>331534</object-id>
+      <visible>1</visible>
+    </database>
+    <database id="2" name="postgres">
+      <object-id>12403</object-id>
+    </database>
+    <database id="3" name="slind">
+      <object-id>16384</object-id>
+    </database>
+    <database id="4" name="campaignapp_dev">
+      <object-id>331533</object-id>
+    </database>
+    <database id="5" name="jobber_dev">
+      <object-id>370643</object-id>
+    </database>
+    <database id="6" name="jobber_test">
+      <object-id>423931</object-id>
+    </database>
+    <database id="7" name="jobber_test2">
+      <object-id>425771</object-id>
+    </database>
+    <database id="8" name="jobber_test3">
+      <object-id>427611</object-id>
+    </database>
+    <database id="9" name="jobber_test4">
+      <object-id>429451</object-id>
+    </database>
+    <database id="10" name="jobber_test5">
+      <object-id>431291</object-id>
+    </database>
+    <database id="11" name="jobber_test6">
+      <object-id>433131</object-id>
+    </database>
+    <database id="12" name="jobber_test7">
+      <object-id>434971</object-id>
+    </database>
+    <database id="13" name="jobber_test8">
+      <object-id>436811</object-id>
+    </database>
+    <schema id="14" parent="1" name="public">
+      <object-id>2200</object-id>
+      <visible>1</visible>
+      <introspection-timestamp>2016-11-14.16:12:35.899</introspection-timestamp>
+    </schema>
+    <schema id="15" parent="1" name="pg_catalog">
+      <object-id>11</object-id>
+    </schema>
+    <schema id="16" parent="1" name="pg_toast">
+      <object-id>99</object-id>
+    </schema>
+    <schema id="17" parent="1" name="pg_temp_1">
+      <object-id>11320</object-id>
+    </schema>
+    <schema id="18" parent="1" name="pg_toast_temp_1">
+      <object-id>11321</object-id>
+    </schema>
+    <schema id="19" parent="1" name="information_schema">
+      <object-id>11853</object-id>
+    </schema>
+  </database-model>
+</dataSource>

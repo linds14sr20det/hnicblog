@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails campaign_app: test" uuid="d96f92ca-2f2e-4b6a-bcbe-cc0688b995ee">
+      <database-info product="PostgreSQL" version="9.4.10" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+    </data-source>
+    <data-source name="Rails campaign_app: production" uuid="0fb31b32-49db-49b2-8874-6dd9c8d40d12">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    </data-source>
+    <data-source name="Rails campaign_app: development" uuid="2a9f29f0-1171-4324-ad08-856eeb3ef94f">
+      <database-info product="PostgreSQL" version="9.4.10" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <resolve-scope>campaignapp_dev:public</resolve-scope>
+    </data-source>
+  </component>
+</project>

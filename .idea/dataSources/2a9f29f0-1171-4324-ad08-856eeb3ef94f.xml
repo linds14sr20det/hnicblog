@@ -11,41 +11,41 @@
     <database id="3" name="slind">
       <object-id>16384</object-id>
     </database>
-    <database id="4" name="campaignapp_test">
-      <object-id>331534</object-id>
-    </database>
-    <database id="5" name="jobber_dev">
+    <database id="4" name="jobber_dev">
       <object-id>370643</object-id>
     </database>
-    <database id="6" name="jobber_test">
-      <object-id>423931</object-id>
+    <database id="5" name="jobber_test">
+      <object-id>658532</object-id>
     </database>
-    <database id="7" name="jobber_test2">
-      <object-id>425771</object-id>
+    <database id="6" name="jobber_test2">
+      <object-id>660370</object-id>
     </database>
-    <database id="8" name="jobber_test3">
-      <object-id>427611</object-id>
+    <database id="7" name="jobber_test3">
+      <object-id>662210</object-id>
     </database>
-    <database id="9" name="jobber_test4">
-      <object-id>429451</object-id>
+    <database id="8" name="jobber_test4">
+      <object-id>664050</object-id>
     </database>
-    <database id="10" name="jobber_test5">
-      <object-id>431291</object-id>
+    <database id="9" name="jobber_test5">
+      <object-id>665890</object-id>
     </database>
-    <database id="11" name="jobber_test6">
-      <object-id>433131</object-id>
+    <database id="10" name="jobber_test6">
+      <object-id>667730</object-id>
     </database>
-    <database id="12" name="jobber_test7">
-      <object-id>434971</object-id>
+    <database id="11" name="jobber_test7">
+      <object-id>669570</object-id>
     </database>
-    <database id="13" name="jobber_test8">
-      <object-id>436811</object-id>
+    <database id="12" name="jobber_test8">
+      <object-id>671410</object-id>
+    </database>
+    <database id="13" name="campaignapp_test">
+      <object-id>680535</object-id>
     </database>
     <schema id="14" parent="1" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-state-number>939258</introspection-state-number>
-      <introspection-timestamp>2016-11-14.16:37:39.598</introspection-timestamp>
+      <introspection-state-number>1132541</introspection-state-number>
+      <introspection-timestamp>2016-11-16.16:33:03.062</introspection-timestamp>
     </schema>
     <schema id="15" parent="1" name="pg_catalog">
       <object-id>11</object-id>
@@ -84,7 +84,7 @@
     </table>
     <table id="25" parent="14" name="users">
       <object-id>517114</object-id>
-      <state-number>939258</state-number>
+      <state-number>1132541</state-number>
     </table>
     <column id="26" parent="22" name="key">
       <state-number>931371</state-number>
@@ -206,19 +206,23 @@
       <state-number>939258</state-number>
       <data-type>varchar|0</data-type>
     </column>
-    <index id="50" parent="25" name="users_pkey">
+    <column id="50" parent="25" name="remember_digest">
+      <state-number>1132541</state-number>
+      <data-type>varchar|0</data-type>
+    </column>
+    <index id="51" parent="25" name="users_pkey">
       <object-id>517121</object-id>
       <columns>id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <index id="51" parent="25" name="index_users_on_email">
+    <index id="52" parent="25" name="index_users_on_email">
       <object-id>541312</object-id>
       <columns>email</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="52" parent="25" name="users_pkey">
+    <key id="53" parent="25" name="users_pkey">
       <object-id>517122</object-id>
       <columns>id</columns>
       <underlying-index>users_pkey</underlying-index>

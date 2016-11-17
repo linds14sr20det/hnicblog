@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:michael)
     @other_user = users(:archer)
+    @non_active = users(:malory)
   end
 
   # test "should get index" do
@@ -27,6 +28,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should show user" do
     get user_url(@user)
     assert_response :success
+  end
+
+  test "should not show inactivated user" do
+    get user_url(@non_active)
+    assert flash.empty?
+    assert_redirected_to root_url
   end
 
   # test "should get edit" do

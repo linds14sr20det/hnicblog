@@ -39,7 +39,7 @@
       <object-id>671410</object-id>
     </database>
     <database id="13" name="campaignapp_test">
-      <object-id>680535</object-id>
+      <object-id>704457</object-id>
     </database>
     <schema id="14" parent="1" name="public">
       <object-id>2200</object-id>

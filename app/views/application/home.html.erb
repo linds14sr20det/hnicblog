@@ -1,12 +1,6 @@
-<div class="center jumbotron">
-  <h1>Placeholder</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-
-  <%= link_to "Report results now!", '#', class: "btn btn-lg btn-primary" %>
+<div class="center jumbotron sg-home">
+  <%= link_to t("home.cta_submit_application"), root_path, class: "cta-submit btn btn-lg btn-primary"%>
 </div>
+
+<div><%= t("home.main_text")%></div>
 

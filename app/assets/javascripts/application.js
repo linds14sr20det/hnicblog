@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require jquery.rwdImageMaps.min
+//= require maphilight
 //= require_tree .

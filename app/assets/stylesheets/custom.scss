@@ -9,8 +9,17 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.container {
+  height: 100%;
 }
 
 section {
@@ -186,3 +195,79 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+.sg-home {
+  background: image-url("Banner.jpg");
+  background-size: cover;
+  background-position:50% 50%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  resize: vertical;
+
+  .cta-submit {
+
+  }
+}
+
+.pagination {
+  margin: 7px 0 0 0;
+}
+
+.pagination-centered {
+  margin: 0 auto !important;
+  display: table;
+}
+
+.row-bordered:after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #ccc;
+}
+
+.title-with-button {
+  display:block;
+  margin:auto;
+}
+
+.button-in-title {
+  position:absolute;
+  top: 20px;
+  right:0;
+}
+
+@media(max-width:767px){}
+@media(min-width:768px){
+  .button-in-title {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    top: 0;
+    margin-bottom: 20px;
+  }
+}
+@media(min-width:992px){
+  .button-in-title {
+    position:absolute;
+    top: 20px;
+    right:0;
+  }
+}
+@media(min-width:1200px){}
+
+

@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home:
+    cta_submit_application: "Apply for a CISC Award"
+    main_text: "Welcome to the CISC Awards submission system!"

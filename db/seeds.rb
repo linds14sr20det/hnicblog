@@ -23,16 +23,3 @@ admin.save!
 # end
 #
 # users = User.order(:created_at).take(6)
-# location = Location.first
-# user_army1 = Army.find(1)
-# opponent_army1 = Army.find(2)
-# user_army2 = Army.find(3)
-# opponent_army2 = Army.find(4)
-#
-# 25.times do
-#   users.each { |user| user.games.create!(win: true, location_id: location.id, user_army_id: user_army1.id, opponent_army_id: opponent_army1.id) }
-# end
-#
-# 25.times do
-#   users.each { |user| user.games.create!(win: true, location_id: location.id, user_army_id: user_army2.id, opponent_army_id: opponent_army2.id) }
-# end

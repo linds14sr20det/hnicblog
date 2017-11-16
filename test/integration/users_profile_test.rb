@@ -13,10 +13,6 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_select 'title', full_title(@user.name)
     assert_select 'h1', text: @user.name
     assert_select 'h1>img.gravatar'
-    assert_match @user.games.count.to_s, response.body
     assert_select 'div.pagination'
-    @user.games.paginate(page: 1).each do |game|
-      assert_match game.location.name, response.body
-    end
   end
 end

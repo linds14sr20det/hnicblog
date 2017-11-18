@@ -1,12 +1,14 @@
-# Create Locations and Armies. These shouldn't change after initial deploy
+# Create some users These shouldn't change after initial deploy
 
-admin = User.find_or_initialize_by(email:  "stephen.r.lind@gmail.com")
-admin.name = "Stephen Lind"
-admin.password_digest = "$2a$10$PqFahHZF9YMvu4J5mMMnE.z0g9rYUsJ4dwRcF4dhyO7NpOXuOmS/O"
-admin.admin = true
-admin.activated = true
-admin.activated_at = Time.zone.now
-admin.save!
+admin = User.create!(
+    email:  "stephen.r.lind@gmail.com",
+    name: "Stephen Lind",
+    password_digest: "$2a$10$PqFahHZF9YMvu4J5mMMnE.z0g9rYUsJ4dwRcF4dhyO7NpOXuOmS/O",
+    activated: true,
+    activated_at: Time.zone.now,
+)
+
+Role.create!(role: 2, user: admin)
 
 # Create a bunch of test accounts
 

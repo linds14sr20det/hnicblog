@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118171000) do
+ActiveRecord::Schema.define(version: 20171119043451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cohorts", force: :cascade do |t|
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.integer  "role",       default: 0
@@ -21,6 +28,18 @@ ActiveRecord::Schema.define(version: 20171118171000) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["user_id"], name: "index_roles_on_user_id", using: :btree
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "cohort_id"
+    t.integer  "user_id"
+    t.string   "description"
+    t.string   "name"
+    t.boolean  "submitted"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["cohort_id"], name: "index_submissions_on_cohort_id", using: :btree
+    t.index ["user_id"], name: "index_submissions_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

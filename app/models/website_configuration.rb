@@ -1,0 +1,2 @@
+class WebsiteConfiguration < ApplicationRecord
+end

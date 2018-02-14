@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :logged_in_user
   before_action :admin_user
 
   def index
@@ -14,7 +14,7 @@ class CohortsController < ApplicationController
     @cohort = Cohort.new(cohort_params)
     if @cohort.save
       flash[:success] = "Cohort created."
-      redirect_to root_url
+      redirect_to cohorts_path
     else
       render 'new'
     end
@@ -37,7 +37,7 @@ class CohortsController < ApplicationController
   def destroy
     Cohort.find(params[:id]).destroy
     flash[:success] = "Cohort deleted"
-    redirect_to cohorts_url
+    redirect_to cohorts_path
   end
 
   private

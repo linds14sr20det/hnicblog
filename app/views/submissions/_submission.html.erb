@@ -1,0 +1,7 @@
+<li>
+  <b>Name:</b> <%= submission.name %>,
+  <b>Description:</b> <%= submission.description %>
+  | <%= link_to 'view', submission_path(submission) %>
+  | <%= link_to 'edit', edit_submission_path(submission) %>
+  | <%= link_to "delete", submission, method: :delete, data: { confirm: "You sure?" } %>
+</li>

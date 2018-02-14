@@ -1,11 +1,11 @@
 <div class="center jumbotron sg-home">
-  <%if current_user.role.is_admin?%>
+  <% if !current_user.nil? && current_user.role.is_admin? %>
     <%= link_to t("home.cta_manage_cohort"), cohorts_path, class: "cta-submit btn btn-lg btn-primary"%>
-  <%elsif current_user.role.is_judge?%>
+  <% elsif !current_user.nil? && current_user.role.is_judge? %>
     <%= link_to t("home.cta_view_submissions"), root_path, class: "cta-submit btn btn-lg btn-primary"%>
-  <%else%>
-    <%= link_to t("home.cta_submit_application"), root_path, class: "cta-submit btn btn-lg btn-primary"%>
-  <%end%>
+  <% else %>
+    <%= link_to t("home.cta_submit_application"), new_submission_path, class: "cta-submit btn btn-lg btn-primary"%>
+  <% end %>
 </div>
 
 <div><%= t("home.main_text")%></div>

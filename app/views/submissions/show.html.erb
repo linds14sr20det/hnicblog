@@ -1,0 +1,15 @@
+<% provide(:title, @submission.name) %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @submission.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @submission.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Back', submissions_path %>

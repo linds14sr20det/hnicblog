@@ -3,7 +3,8 @@ class CohortsController < ApplicationController
   before_action :admin_user
 
   def index
-    @cohorts = Cohort.paginate(page: params[:page], :per_page => 12)
+    @active_cohort = Cohort.where(active: true)
+    @cohorts = Cohort.where(active: false).paginate(page: params[:page], :per_page => 12)
   end
 
   def new

@@ -14,7 +14,7 @@ module SessionsHelper
 
   # Confirms an admin user.
   def admin_user
-    redirect_to(root_url) unless current_user.admin?
+    redirect_to(root_url) unless current_user.role.is_admin?
   end
 
   # Returns true if the given user is the current user.

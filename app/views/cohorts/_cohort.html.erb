@@ -1,0 +1,6 @@
+<li>
+  <b>Start date:</b> <%= cohort.start_at.strftime("%B %d, %Y") %>,
+  <b>End date:</b> <%= cohort.end_at.strftime("%B %d, %Y") %>
+  | <%= link_to 'edit', edit_cohort_path(cohort) %> | <%= link_to "delete", cohort, method: :delete,
+                    data: { confirm: "You sure?" } %>
+</li>

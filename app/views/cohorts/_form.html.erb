@@ -1,0 +1,11 @@
+<%= form_for(@cohort) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :start_at %>
+  <%= f.text_field :start_at, data:{ provide:'datepicker' } %>
+
+  <%= f.label :end_at %>
+  <%= f.text_field :end_at, data:{ provide:'datepicker' } %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

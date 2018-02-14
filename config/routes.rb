@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'
   resources :users
+  resources :cohorts
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 end

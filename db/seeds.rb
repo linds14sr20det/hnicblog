@@ -3,7 +3,7 @@
 admin = User.create!(
     email:  "stephen.r.lind@gmail.com",
     name: "Stephen Lind",
-    password_digest: "$2a$10$PqFahHZF9YMvu4J5mMMnE.z0g9rYUsJ4dwRcF4dhyO7NpOXuOmS/O",
+    password_digest: "$2a$10$OTvrczPu1h5zpo8.b61peOm6hHNyvu9aji3R1rKCVoR/JhCpPwXee", #password
     activated: true,
     activated_at: Time.zone.now,
 )

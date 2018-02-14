@@ -7,5 +7,8 @@
   <%= f.label :end_at %>
   <%= f.text_field :end_at, data:{ provide:'datepicker' } %>
 
+  <%= f.label :active? %>
+  <%= f.check_box :active %>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

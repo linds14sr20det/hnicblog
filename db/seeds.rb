@@ -9,8 +9,6 @@ admin = User.create!(
     role: 2
 )
 
-Role.create!(role: 2, user: admin)
-
 judge = User.create!(
     email:  "judge@gmail.com",
     name: "Sylvester Stallone",

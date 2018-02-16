@@ -46,7 +46,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -58,6 +57,10 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: #777;
+}
+
+h3 {
+  margin-top: 10px;
 }
 
 p {
@@ -236,21 +239,9 @@ span.picture {
   display: table;
 }
 
-.row-bordered:after {
-  content: "";
-  display: block;
-  border-bottom: 1px solid #ccc;
-}
-
-.title-with-button {
-  display:block;
-  margin:auto;
-}
-
-.button-in-title {
-  position:absolute;
-  top: 20px;
-  right:0;
+.row {
+  display: flex;
+  align-items: center;
 }
 
 @media(max-width:767px){}

@@ -1,17 +1,18 @@
 class SubmissionsController < ApplicationController
   before_action :logged_in_user
-  before_action :submissions_for_user, only: [:edit, :update, :destroy]
+  before_action :submissions_for_user, only: [:show, :edit, :update, :destroy]
 
   def index
     #TODO: Need to show these grouped by cohort and sorted chronologically
     if current_user.is_admin?
-      submissions = Submission
+      submissions = Submission.joins(:cohort)
     elsif current_user.is_judge?
       submissions = Submission.where(user_id: current_user.id)
     else
       submissions = Submission.where(user_id: current_user.id)
     end
-    @submissions = submissions.paginate(page: params[:page], :per_page => 12)
+    @old_submissions = submissions.where("cohorts.active = false").order(:created_at).paginate(page: params[:old_page], :per_page => 12)
+    @active_submissions = submissions.where("cohorts.active = true").order(:created_at).paginate(page: params[:active_page], :per_page => 12)
   end
 
   def show
@@ -49,6 +50,9 @@ class SubmissionsController < ApplicationController
   end
 
   def destroy
+    if current_user.is_judge?
+      redirect_to submissions_path
+    end
     Submission.find(params[:id]).destroy
     flash[:success] = "Submission deleted"
     redirect_to submissions_path
@@ -65,7 +69,7 @@ class SubmissionsController < ApplicationController
     # Confirms the submission is owned by the current user.
     def submissions_for_user
       @submission = Submission.find(params[:id])
-      redirect_to(root_url) unless current_user?(@submission.user)
+      redirect_to(root_url) unless current_user?(@submission.user) || current_user.is_admin? || current_user.is_judge?
     end
 
 end

@@ -1,23 +1,55 @@
 <% provide(:title, 'Current submissions') %>
 
 <div class="row">
-  <div class="col-md-12">
-    <div class="title-with-button"><h1>Current Submissions</h1></div>
+  <div class="col-xs-6 col-xs-offset-3">
+    <h1>Submissions</h1>
   </div>
-</div>
-<div class="row row-bordered">
-  <div class="col-lg-8"><span class="pull-left"><%= will_paginate %></span></div>
-  <div class="col-lg-4">
+  <div class="col-xs-3">
     <%= link_to "New Submission", new_submission_path, class: "btn btn-primary pull-right"%>
   </div>
 </div>
-<div class="row">
-  <div class="col-lg-12">
-    <ul class="users">
-      <%= render @submissions %>
-    </ul>
+
+<div class="well">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Current Open Submissions</h3>
+    </div>
   </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Project Description</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <%= render @active_submissions %>
+  </table>
+  <%= will_paginate @active_submissions, param_name: :active_page %>
 </div>
-<div class="row">
-  <div class="col-lg-12"><%= will_paginate %></div>
+
+<div class="well">
+  <div class="row">
+    <div class="col-xs-9">
+      <h3>Past Submissions</h3>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-primary pull-right" type="button" data-toggle="collapse" data-target="#old-submissions" aria-expanded="false" aria-controls="collapseExample">
+        Show
+      </button>
+    </div>
+  </div>
+  <div class="collapse" id="old-submissions">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Project Name</th>
+        <th>Project Description</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <%= render @old_submissions %>
+    </table>
+    <%= will_paginate @old_submissions, param_name: :old_page %>
+  </div>
 </div>

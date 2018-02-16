@@ -4,9 +4,9 @@ class SubmissionsController < ApplicationController
 
   def index
     #TODO: Need to show these grouped by cohort and sorted chronologically
-    if current_user.role.is_admin?
+    if current_user.is_admin?
       submissions = Submission
-    elsif current_user.role.is_judge?
+    elsif current_user.is_judge?
       submissions = Submission.where(user_id: current_user.id)
     else
       submissions = Submission.where(user_id: current_user.id)

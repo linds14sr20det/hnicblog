@@ -6,6 +6,7 @@ admin = User.create!(
     password_digest: "$2a$10$OTvrczPu1h5zpo8.b61peOm6hHNyvu9aji3R1rKCVoR/JhCpPwXee", #password
     activated: true,
     activated_at: Time.zone.now,
+    role: 2
 )
 
 Role.create!(role: 2, user: admin)
@@ -16,9 +17,8 @@ judge = User.create!(
     password_digest: "$2a$10$OTvrczPu1h5zpo8.b61peOm6hHNyvu9aji3R1rKCVoR/JhCpPwXee", #password
     activated: true,
     activated_at: Time.zone.now,
-    )
-
-Role.create!(role: 1, user: judge)
+    role: 1
+)
 
 submitter = User.create!(
     email:  "frank@rjc.com",
@@ -26,9 +26,8 @@ submitter = User.create!(
     password_digest: "$2a$10$OTvrczPu1h5zpo8.b61peOm6hHNyvu9aji3R1rKCVoR/JhCpPwXee", #password
     activated: true,
     activated_at: Time.zone.now,
+    role: 0
 )
-
-Role.create!(role: 0, user: submitter)
 
 # Create a bunch of test accounts
 

@@ -6,10 +6,8 @@
         <li><%= link_to "Home", root_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Submissions", submissions_path %></li>
-          <% if current_user.role.is_admin? %>
+          <% if current_user.is_admin? %>
             <li><%= link_to "Users", users_path %></li>
-          <% end %>
-          <% if current_user.role.is_admin? %>
             <li><%= link_to "Cohorts", cohorts_path %></li>
           <% end %>
           <li class="dropdown">

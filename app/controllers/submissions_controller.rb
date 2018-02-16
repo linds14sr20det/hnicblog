@@ -4,7 +4,6 @@ class SubmissionsController < ApplicationController
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
-    #TODO: Need to show these grouped by cohort and sorted chronologically
     if current_user.is_admin?
       submissions = Submission.joins(:cohort)
     elsif current_user.is_judge?
@@ -22,11 +21,12 @@ class SubmissionsController < ApplicationController
 
   def new
     @submission = Submission.new
+    @submission.attachments.build
   end
 
   def create
     @submission = Submission.new(submission_params)
-    @submission.cohort = Cohort.last
+    @submission.cohort = Cohort.where(active: true)
     @submission.user = current_user
     if @submission.save
       flash[:info] = "Submission has been saved."
@@ -62,7 +62,7 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:name, :description)
+    params.require(:submission).permit(:name, :description, attachments_attributes: [:id, :url])
   end
 
   # Before filters

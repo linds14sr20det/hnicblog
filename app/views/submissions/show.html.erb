@@ -10,6 +10,10 @@
   <%= @submission.description %>
 </p>
 
+<% @submission.attachments.each do |attachment| %>
+  <%= image_tag attachment.url %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_submission_path(@submission) %> |
 <%= link_to 'Back', submissions_path %>

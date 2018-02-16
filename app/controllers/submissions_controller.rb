@@ -1,6 +1,7 @@
 class SubmissionsController < ApplicationController
   before_action :logged_in_user
   before_action :submissions_for_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
     #TODO: Need to show these grouped by cohort and sorted chronologically
@@ -60,16 +61,19 @@ class SubmissionsController < ApplicationController
 
   private
 
-    def submission_params
-      params.require(:submission).permit(:name, :description)
-    end
+  def submission_params
+    params.require(:submission).permit(:name, :description)
+  end
 
-    # Before filters
+  # Before filters
 
-    # Confirms the submission is owned by the current user.
-    def submissions_for_user
-      @submission = Submission.find(params[:id])
-      redirect_to(root_url) unless current_user?(@submission.user) || current_user.is_admin? || current_user.is_judge?
-    end
+  # Confirms the submission is owned by the current user.
+  def submissions_for_user
+    @submission = Submission.find(params[:id])
+    redirect_to(root_url) unless current_user?(@submission.user) || current_user.is_admin? || current_user.is_judge?
+  end
 
+  def set_s3_direct_post
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+  end
 end

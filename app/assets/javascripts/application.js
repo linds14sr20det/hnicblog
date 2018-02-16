@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.rwdImageMaps.min
-//= require maphilight
 //= require_tree .
 //= require bootstrap-datepicker
+//= require jquery.ui.widget
+//= require z.jquery.fileupload
 
 $.fn.datepicker.defaults.format = "yyyy-mm-dd";

@@ -8,10 +8,10 @@
   <%= f.text_area :description %>
 
   <%= f.label :attachment_uploader %>
-  <%= f.file_field :attachment_uploader %>
+  <%= f.file_field :attachment_uploader, accept: "image/*;capture=camera" %>
 
   <%= f.fields_for :attachments do |ff| %>
-    <%= ff.hidden_field :url %>
+    <%= ff.hidden_field :url%>
   <% end %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>

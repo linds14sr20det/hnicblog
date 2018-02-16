@@ -1,36 +1,57 @@
 <% provide(:title, 'All Cohorts') %>
 
 <div class="row">
-  <div class="col-md-12">
-    <div class="title-with-button"><h1>All Cohorts</h1></div>
+  <div class="col-xs-6 col-xs-offset-3">
+    <h1>Cohorts</h1>
+  </div>
+  <div class="col-xs-3">
+    <%= link_to "New Cohort", new_cohort_path, class: "btn btn-primary pull-right"%>
   </div>
 </div>
 
 <% unless @active_cohort.nil? %>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <h3>Active Cohort</h3>
-        <%= render @active_cohort %>
+  <div class="well">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Current Active Cohort</h3>
       </div>
     </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <%= render @active_cohort %>
+    </table>
   </div>
 <% end %>
 
-<h3>Inactive Cohorts</h3>
-<div class="row">
-  <div class="col-lg-8"><span class="pull-left"><%= will_paginate %></span></div>
-  <div class="col-lg-4">
-    <%= link_to "New Cohort", new_cohort_path, class: "btn btn-primary pull-right"%>
+<div class="well">
+  <div class="row">
+    <div class="col-xs-9">
+      <h3>Inactive Cohorts</h3>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-primary pull-right" type="button" data-toggle="collapse" data-target="#old-cohorts" aria-expanded="false" aria-controls="collapseExample">
+        Show
+      </button>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-lg-12">
-    <ul class="users">
+  <div class="collapse" id="old-cohorts">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
       <%= render @cohorts %>
-    </ul>
+    </table>
+    <%= will_paginate @cohorts %>
   </div>
 </div>
-<div class="row">
-  <div class="col-lg-12"><%= will_paginate %></div>
-</div>
+

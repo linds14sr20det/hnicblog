@@ -23,7 +23,7 @@
       <th>Actions</th>
     </tr>
     </thead>
-    <%= render @active_submissions %>
+    <%= render @active_submissions unless @active_submissions.empty? %>
   </table>
   <%= will_paginate @active_submissions, param_name: :active_page %>
 </div>

@@ -26,7 +26,7 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(submission_params)
-    @submission.cohort = Cohort.where(active: true)
+    @submission.cohort = Cohort.where(active: true).first
     @submission.user = current_user
     if @submission.save
       flash[:info] = "Submission has been saved."

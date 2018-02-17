@@ -28,6 +28,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
     @submission.cohort = Cohort.where(active: true).first
     @submission.user = current_user
+    @submission.submitted = true if params[:submit_judges]
     if @submission.save
       flash[:info] = "Submission has been saved."
       redirect_to submissions_path
@@ -41,8 +42,11 @@ class SubmissionsController < ApplicationController
   end
 
   def update
+    binding.pry
     @submission = Submission.find(params[:id])
-    if @submission.update_attributes(submission_params)
+    s_p = submission_params
+    s_p[:submitted] = true if params[:submit_judges]
+    if @submission.update_attributes(s_p)
       flash[:success] = "Submission updated"
       redirect_to submissions_path
     else

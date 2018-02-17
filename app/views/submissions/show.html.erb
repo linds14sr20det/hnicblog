@@ -11,7 +11,8 @@
 </p>
 
 <% @submission.attachments.each do |attachment| %>
-  <%= image_tag attachment.url %>
+  <p>Attachment preview:</p>
+  <%= image_tag attachment.url, class: 'img-responsive' %>
 <% end %>
 
 

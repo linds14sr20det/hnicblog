@@ -11,15 +11,16 @@
     <%= f.text_field :end_at, data:{ provide:'datepicker' }, class: 'form-control' %>
   </div>
 
-  <div>
-    <h3>Categories</h3>
-    <% f.fields_for :categories do |category| %>
-      <%= render 'category_fields', f: category %>
+  <h3>Categories</h3>
+  <div id="categories">
+    <%= f.fields_for :categories do |category| %>
+      <%= render 'category_fields', :f => category %>
     <% end %>
-    <%= link_to_add_association 'Add a category', f, :categories, class: 'btn btn-primary category-insert', data: {'association-insertion-method' => :before, 'association-insertion-node' => '.category-insert'} %>
+    <div class="links">
+      <%= link_to_add_association 'Add category', f, :categories, class: 'btn btn-primary' %>
+    </div>
   </div>
 
   <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
   <%= f.submit "Save and activate cohort", class: "btn btn-primary", name: 'activate_cohort' %>
-
 <% end %>

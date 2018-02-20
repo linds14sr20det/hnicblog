@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'aws-sdk', '~> 2'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cocoon'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

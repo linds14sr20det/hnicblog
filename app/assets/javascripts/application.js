@@ -17,5 +17,6 @@
 //= require bootstrap-datepicker
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
+//= require cocoon
 
 $.fn.datepicker.defaults.format = "yyyy-mm-dd";

@@ -1,13 +1,6 @@
 class Cohort < ApplicationRecord
   has_many :submissions
-  #TODO: Create the pivot table for this many to many relation
-  #has_many :categories
+  has_many :categories, inverse_of: :cohort
   #TODO: validate start is before end
-  before_save :switch_active
-
-  private
-
-  def switch_active
-    
-  end
+  accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
 end

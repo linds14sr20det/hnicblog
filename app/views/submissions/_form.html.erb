@@ -75,7 +75,7 @@
                   var url   = '//' + form.data('host') + '/' + key;
 
                   // create hidden field
-                  $("#submission_attachments_attributes_0_url").val(url)
+                  insertedItem.find('.url-holder').val(url);
               },
               fail: function(e, data) {
                   submitButton.prop('disabled', false);

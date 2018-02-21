@@ -1,3 +1,3 @@
 class Attachment < ApplicationRecord
-  belongs_to :submission, optional: true
+  belongs_to :submission
 end

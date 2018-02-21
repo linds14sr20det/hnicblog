@@ -21,7 +21,8 @@ class SubmissionsController < ApplicationController
 
   def new
     @submission = Submission.new
-    @submission.attachments.build
+    #TODO: Decide if the line below is neccessary (it adds an initial attachment)
+    #@submission.attachments.build
   end
 
   def create
@@ -65,7 +66,7 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:name, :description, attachments_attributes: [:id, :url], team_members_attributes: [:id, :name, :title, :email, :_destroy])
+    params.require(:submission).permit(:name, :description, attachments_attributes: [:id, :url, :_destroy], team_members_attributes: [:id, :name, :title, :email, :_destroy])
   end
 
   # Before filters

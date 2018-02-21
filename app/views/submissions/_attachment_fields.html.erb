@@ -1,0 +1,12 @@
+<div class="nested-fields well">
+  <div class="form-group">
+    <%= f.label :attachment_uploader %>
+    <%= f.file_field :attachment_uploader, accept: "image/*;capture=camera", class: 'form-control' %>
+
+    <%= f.fields_for :attachments do |ff| %>
+      <%= ff.hidden_field :url%>
+    <% end %>
+  </div>
+  <%= link_to_remove_association('Remove this attachment', f, class: 'btn btn-primary') %>
+</div>
+

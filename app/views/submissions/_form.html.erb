@@ -1,18 +1,34 @@
 <%= form_for(@submission, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, "Project Name" %>
-  <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, "Project Name" %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
 
+  <h3>Team Members</h3>
+  <div id="team_member">
+    <%= f.fields_for :team_members do |team_member| %>
+      <%= render 'team_member_fields', :f => team_member %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add team member', f, :team_members, class: 'btn btn-primary' %>
+    </div>
+  </div>
+
+  <div class="form-group">
   <%= f.label :attachment_uploader %>
-  <%= f.file_field :attachment_uploader, accept: "image/*;capture=camera" %>
+  <%= f.file_field :attachment_uploader, accept: "image/*;capture=camera", class: 'form-control' %>
 
   <%= f.fields_for :attachments do |ff| %>
     <%= ff.hidden_field :url%>
   <% end %>
+  </div>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
   <%= f.submit "Submit to Judges", class: "btn btn-primary", name: 'submit_judges' %>

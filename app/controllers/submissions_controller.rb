@@ -42,7 +42,6 @@ class SubmissionsController < ApplicationController
   end
 
   def update
-    binding.pry
     @submission = Submission.find(params[:id])
     s_p = submission_params
     s_p[:submitted] = true if params[:submit_judges]
@@ -66,7 +65,7 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:name, :description, attachments_attributes: [:id, :url])
+    params.require(:submission).permit(:name, :description, attachments_attributes: [:id, :url], team_members_attributes: [:id, :name, :title, :email, :_destroy])
   end
 
   # Before filters

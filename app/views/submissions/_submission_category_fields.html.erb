@@ -1,12 +1,12 @@
 <div>
   <%= label_tag "#{f.object.category.title.parameterize(separator: '_')}_#{f.object.category.id}", class: "checkbox inline" do %>
-    <%= check_box_tag "#{f.object.category.title.parameterize(separator: '_')}_#{f.object.category.id}", nil, !f.object.description.empty?, class: 'apply-category' %>
+    <%= check_box_tag "#{f.object.category.title.parameterize(separator: '_')}_#{f.object.category.id}", nil, f.object.description.present?, class: 'apply-category' %>
     <span><%= f.object.category.title %></span>
   <% end %>
 
   <%= f.hidden_field :category_id %>
 
-  <div class="form-group category-description" <%= 'style=display:none' if f.object.description.empty? %>>
+  <div class="form-group category-description" <%= 'style=display:none' unless f.object.description.present? %>>
     <%= f.label :description %>
     <%= f.text_area :description, class: 'form-control' %>
   </div>

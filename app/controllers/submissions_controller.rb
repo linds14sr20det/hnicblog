@@ -24,8 +24,7 @@ class SubmissionsController < ApplicationController
     active_cohort = Cohort.where(active: true).first
     @submission.cohort = active_cohort
     active_cohort.categories.each do |category|
-      submission_category = @submission.submission_categories.build
-      submission_category.category = category
+      @submission.submission_categories.build({:category => category})
     end
   end
 
@@ -44,6 +43,12 @@ class SubmissionsController < ApplicationController
 
   def edit
     @submission = Submission.find(params[:id])
+    existing_s_c = @submission.submission_categories.map(&:category_id)
+    categories = @submission.cohort.categories.reject { |category| existing_s_c.include?(category.id) }
+
+    categories.each do |category|
+      @submission.submission_categories.build({:category => category})
+    end
   end
 
   def update
@@ -70,7 +75,7 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:name, :description, attachments_attributes: [:id, :url, :_destroy], team_members_attributes: [:id, :name, :title, :email, :_destroy])
+    params.require(:submission).permit(:name, :description, attachments_attributes: [:id, :url, :_destroy], team_members_attributes: [:id, :name, :title, :email, :_destroy], submission_categories_attributes: [:id, :description, :category_id, :_destroy])
   end
 
   # Before filters

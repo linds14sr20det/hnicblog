@@ -1,9 +1,13 @@
-<%= label_tag :checkbox, class: "checkbox inline" do %>
-  <%= check_box_tag :checkbox %>
-  <span><%= f.object.category.title %></span>
-<% end %>
+<div>
+  <%= label_tag "#{f.object.category.title.parameterize(separator: '_')}_#{f.object.category.id}", class: "checkbox inline" do %>
+    <%= check_box_tag "#{f.object.category.title.parameterize(separator: '_')}_#{f.object.category.id}", nil, !f.object.description.empty?, class: 'apply-category' %>
+    <span><%= f.object.category.title %></span>
+  <% end %>
 
-<div class="form-group">
-  <%= f.label :description %>
-  <%= f.text_area :description, class: 'form-control' %>
+  <%= f.hidden_field :category_id %>
+
+  <div class="form-group category-description">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
 </div>

@@ -93,5 +93,9 @@
           });
       });
   });
+
+  $('.apply-category').change(function(){
+      $(this).parent().siblings('.category-description').toggle(this.checked);
+  }).change();
   //TODO: Need to setup an autosave here.
 </script>

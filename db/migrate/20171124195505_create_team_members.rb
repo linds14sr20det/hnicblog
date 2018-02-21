@@ -4,7 +4,7 @@ class CreateTeamMembers < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :name
       t.string :title
-      t.references :submission, foreign_key: true
+      t.belongs_to :submission, foreign_key: true
 
       t.timestamps
     end

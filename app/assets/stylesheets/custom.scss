@@ -134,17 +134,6 @@ aside {
   @include box_sizing;
 }
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
-
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -152,6 +141,10 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+}
+
+.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  margin-left: 0;
 }
 
 input {
@@ -184,7 +177,6 @@ input {
 
 #session_remember_me {
   width: auto;
-  margin-left: 0;
 }
 
 /* Users index */

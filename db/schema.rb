@@ -29,9 +29,7 @@ ActiveRecord::Schema.define(version: 20180219192817) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "cohort_id"
-    t.integer  "cohorts_id"
     t.index ["cohort_id"], name: "index_categories_on_cohort_id", using: :btree
-    t.index ["cohorts_id"], name: "index_categories_on_cohorts_id", using: :btree
   end
 
   create_table "cohorts", force: :cascade do |t|
@@ -44,10 +42,12 @@ ActiveRecord::Schema.define(version: 20180219192817) do
 
   create_table "submission_categories", force: :cascade do |t|
     t.string   "description"
-    t.integer  "categories_id"
+    t.integer  "category_id"
+    t.integer  "submission_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["categories_id"], name: "index_submission_categories_on_categories_id", using: :btree
+    t.index ["category_id"], name: "index_submission_categories_on_category_id", using: :btree
+    t.index ["submission_id"], name: "index_submission_categories_on_submission_id", using: :btree
   end
 
   create_table "submissions", force: :cascade do |t|
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20180219192817) do
 
   add_foreign_key "attachments", "submissions"
   add_foreign_key "categories", "cohorts"
-  add_foreign_key "submission_categories", "categories", column: "categories_id"
+  add_foreign_key "submission_categories", "categories"
+  add_foreign_key "submission_categories", "submissions"
   add_foreign_key "team_members", "submissions"
 end

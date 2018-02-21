@@ -11,6 +11,12 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
 
+  <h3>Categories</h3>
+  <%= f.fields_for :submission_categories do |submission_category| %>
+    <%= render 'submission_category_fields', :f => submission_category %>
+  <% end %>
+
+
   <h3>Team Members</h3>
   <div id="team_member">
     <%= f.fields_for :team_members do |team_member| %>
@@ -87,4 +93,5 @@
           });
       });
   });
+  //TODO: Need to setup an autosave here.
 </script>

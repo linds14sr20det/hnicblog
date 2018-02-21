@@ -3,6 +3,8 @@ class Submission < ApplicationRecord
   belongs_to :user
   has_many :team_members, inverse_of: :submission, dependent: :destroy
   has_many :attachments, inverse_of: :submission, dependent: :destroy
-  accepts_nested_attributes_for :attachments, allow_destroy: true
+  has_many :submission_categories, inverse_of: :submission, dependent: :destroy
   accepts_nested_attributes_for :team_members, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :attachments, allow_destroy: true
+  accepts_nested_attributes_for :submission_categories, allow_destroy: true
 end

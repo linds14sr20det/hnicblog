@@ -21,8 +21,12 @@ class SubmissionsController < ApplicationController
 
   def new
     @submission = Submission.new
-    #TODO: Decide if the line below is neccessary (it adds an initial attachment)
-    #@submission.attachments.build
+    active_cohort = Cohort.where(active: true).first
+    @submission.cohort = active_cohort
+    active_cohort.categories.each do |category|
+      submission_category = @submission.submission_categories.build
+      submission_category.category = category
+    end
   end
 
   def create

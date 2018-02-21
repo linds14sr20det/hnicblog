@@ -6,7 +6,7 @@
 
   <%= f.hidden_field :category_id %>
 
-  <div class="form-group category-description">
+  <div class="form-group category-description" <%= 'style=display:none' if f.object.description.empty? %>>
     <%= f.label :description %>
     <%= f.text_area :description, class: 'form-control' %>
   </div>

@@ -95,7 +95,7 @@
   });
 
   $('.apply-category').change(function(){
-      $(this).parent().siblings('.category-description').toggle(this.checked);
-  }).change();
+      $(this).parent().siblings('.category-description').slideToggle(this.checked);
+  });
   //TODO: Need to setup an autosave here.
 </script>

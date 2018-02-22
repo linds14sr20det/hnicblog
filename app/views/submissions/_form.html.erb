@@ -14,6 +14,23 @@
           <%= f.label :description %>
           <%= f.text_area :description, class: 'form-control' %>
         </div>
+
+        <div class="form-group">
+          <%= f.label :project_location %>
+          <%= f.text_area :project_location, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :cisc_number %>
+          <%= f.number_field :cisc_number, class: 'form-control' %>
+          <%= f.label :contact_cisc %>
+          <%= f.check_box :contact_cisc %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :steelwork_completion_date %>
+          <%= f.text_field :steelwork_completion_date, data:{ provide:'datepicker' }, class: 'form-control' %>
+        </div>
       </div>
     </div>
   </div>

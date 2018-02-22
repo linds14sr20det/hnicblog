@@ -1,15 +1,20 @@
-<%= form_for(@submission, html: { data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
+<%= form_for(@submission, html: { class: 'form-pad-bottom', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <div class="well">
-    <div class="form-group">
-      <%= f.label :name, "Project Name" %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>General Project Information</h3>
+      <div class="well">
+        <div class="form-group">
+          <%= f.label :name, "Project Name" %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
 
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control' %>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: 'form-control' %>
+        </div>
+      </div>
     </div>
   </div>
 

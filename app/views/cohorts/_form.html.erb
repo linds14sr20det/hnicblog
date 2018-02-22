@@ -1,26 +1,39 @@
 <%= form_for(@cohort) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  <div class="well">
+    <div class="form-group">
+      <%= f.label :start_at %>
+      <%= f.text_field :start_at, data:{ provide:'datepicker' }, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :start_at %>
-    <%= f.text_field :start_at, data:{ provide:'datepicker' }, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :end_at %>
-    <%= f.text_field :end_at, data:{ provide:'datepicker' }, class: 'form-control' %>
-  </div>
-
-  <h3>Categories</h3>
-  <div id="categories">
-    <%= f.fields_for :categories do |category| %>
-      <%= render 'category_fields', :f => category %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add category', f, :categories, class: 'btn btn-primary' %>
+    <div class="form-group">
+      <%= f.label :end_at %>
+      <%= f.text_field :end_at, data:{ provide:'datepicker' }, class: 'form-control' %>
     </div>
   </div>
 
-  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
-  <%= f.submit "Save and activate cohort", class: "btn btn-primary", name: 'activate_cohort' %>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Categories</h3>
+      <div id="categories">
+        <%= f.fields_for :categories do |category| %>
+          <%= render 'category_fields', :f => category %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'Add category', f, :categories, class: 'btn btn-primary btn-block' %>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="btn-group-vertical btn-block">
+        <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+        <%= f.submit "Save and activate cohort", class: "btn btn-primary", name: 'activate_cohort' %>
+      </div>
+    </div>
+  </div>
 <% end %>

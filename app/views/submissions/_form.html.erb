@@ -1,44 +1,66 @@
-<%= form_for(@submission, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
+<%= form_for(@submission, html: { data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <div class="form-group">
-    <%= f.label :name, "Project Name" %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
+  <div class="well">
+    <div class="form-group">
+      <%= f.label :name, "Project Name" %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control' %>
-  </div>
-
-  <h3>Categories</h3>
-  <%= f.fields_for :submission_categories do |submission_category| %>
-    <%= render 'submission_category_fields', :f => submission_category %>
-  <% end %>
-
-
-  <h3>Team Members</h3>
-  <div id="team_member">
-    <%= f.fields_for :team_members do |team_member| %>
-      <%= render 'team_member_fields', :f => team_member %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add team member', f, :team_members, class: 'btn btn-primary' %>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
     </div>
   </div>
 
-  <h3>Attach Project Photos</h3>
-  <div id="attachments">
-    <%= f.fields_for :attachments do |attachment| %>
-      <%= render 'attachment_fields', :f => attachment %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add attachment', f, :attachments, class: 'btn btn-primary' %>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Team Members</h3>
+      <div id="team_member">
+        <%= f.fields_for :team_members do |team_member| %>
+          <%= render 'team_member_fields', :f => team_member %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'Add team member', f, :team_members, class: 'btn btn-primary btn-block' %>
+        </div>
+      </div>
     </div>
   </div>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-  <%= f.submit "#{yield(:button_text)} and submit for judging", class: "btn btn-primary", name: 'submit_judges',  data: { confirm: "This will submit this award application for judging. You will not be able to edit this any more. Are you sure?" } %>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Categories</h3>
+      <div>
+        <%= f.fields_for :submission_categories do |submission_category| %>
+          <%= render 'submission_category_fields', :f => submission_category %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Attach Project Photos</h3>
+      <div id="attachments">
+        <%= f.fields_for :attachments do |attachment| %>
+          <%= render 'attachment_fields', :f => attachment %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'Add attachment', f, :attachments, class: 'btn btn-primary btn-block' %>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="btn-group-vertical btn-block">
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+      <%= f.submit "#{yield(:button_text)} and submit for judging", class: "btn btn-primary", name: 'submit_judges',  data: { confirm: "This will submit this award application for judging. You will not be able to edit this any more. Are you sure?" } %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <script>
@@ -95,7 +117,7 @@
   });
 
   $('.apply-category').change(function(){
-      $(this).parent().siblings('.category-description').slideToggle(this.checked);
+      $(this).parent().parent().siblings('.category-description').toggle(this.checked);
   });
   //TODO: Need to setup an autosave here.
 </script>

@@ -6,16 +6,23 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <h3><%= sanitize(@submission.project_location) %></h3>
+    <h3><%= @submission.project_location %></h3>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <p>
-      <%= sanitize(@submission.description) %>
-    </p>
+    <%= sanitize(@submission.description) %>
   </div>
 </div>
+<h3>Categories</h3>
+<table class="table table-striped">
+  <% @submission.submission_categories.each do |submission_category| %>
+    <tr>
+      <td class="col-md-3"><b><%= submission_category.category.title %></b></td>
+      <td class="col-md-9"><%= sanitize(submission_category.description) %></td>
+    </tr>
+  <% end %>
+</table>
 
 
 <% @submission.attachments.each do |attachment| %>

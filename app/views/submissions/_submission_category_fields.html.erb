@@ -1,8 +1,8 @@
 <table class="table table-striped">
   <tr>
     <td class="col-md-3"><%= check_box_tag "#{f.object.category.title.parameterize(separator: '_')}_#{f.object.category.id}", nil, f.object.description.present?, class: 'apply-category' %> <b><%= f.object.category.title %></b></td>
-    <td class="col-md-9"><%= f.object.category.description %></td>
-  <tr/>
+    <td class="col-md-9"><%= sanitize(f.object.category.description) %></td>
+  </tr>
 
   <tr class="category-description" <%= 'style=display:none' unless f.object.description.present? %>>
     <td><%= f.label :description %></td>

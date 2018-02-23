@@ -6,5 +6,5 @@ class Submission < ApplicationRecord
   has_many :submission_categories, inverse_of: :submission, dependent: :destroy
   accepts_nested_attributes_for :team_members, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :attachments, allow_destroy: true
-  accepts_nested_attributes_for :submission_categories, reject_if: proc { |s_c| s_c['description'].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :submission_categories, allow_destroy: true
 end

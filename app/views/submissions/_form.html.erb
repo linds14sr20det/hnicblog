@@ -151,7 +151,11 @@
     });
 
     $('.apply-category').change(function(){
-        $(this).parent().parent().siblings('.category-description').toggle(this.checked);
+        var description = $(this).parent().parent().siblings('.category-description');
+        description.toggle(this.checked);
+        if (!this.checked) {
+            description.find("textarea").froalaEditor('html.set', '');
+        }
     });
 
     $(document).ready(function(){

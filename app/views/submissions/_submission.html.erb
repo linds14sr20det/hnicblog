@@ -1,6 +1,7 @@
 <tr>
   <td><%= submission.name %></td>
-  <td><%= submission.description %></td>
+  <td><%= submission.project_location %></td>
+  <td><%= submission.submission_categories.map{|submission_category| submission_category.category.title}.join(", ") %></td>
   <td>
     <%= link_to 'view', submission_path(submission) %>
     | <%= link_to 'edit', edit_submission_path(submission) %>

@@ -162,12 +162,10 @@
     });
 
     $(document).ready(function(){
-        $(".title-selector").each(function(){
-            if( $(this).val() !== "<%= t("submission.team_member.titles.other") %>") {
-                $(this).parent().find(".title-input").toggle(false);
-            }
-        });
+        $(".title-selector").filter(function(){return this.value !== "<%= t('submission.team_member.titles.other') %>"}).trigger('change');
     });
+
+
 
     //TODO: Need to setup an autosave here.
 </script>

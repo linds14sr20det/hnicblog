@@ -20,7 +20,7 @@
 <script>
     $(".title-selector").change(function(){
         var titleInput = $(this).parent().find(".title-input");
-        if ($(this).val() === "Other (Please Specify)") {
+        if ($(this).val() === "<%= t('submission.team_member.titles.other') %>") {
             titleInput.toggle(true);
             titleInput.val("");
         } else {

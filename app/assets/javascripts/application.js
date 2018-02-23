@@ -22,7 +22,8 @@
 
 $(document).ready(function(){
     $('textarea:not(.no-wysiwyg)').froalaEditor({
-        toolbarStickyOffset: 50
+        toolbarStickyOffset: 50,
+        key: 'PG-10dpj1xB3wwdqwI2J3B10B7B7A5F4igqknsfxyG5hcj1=='
     });
 });
 

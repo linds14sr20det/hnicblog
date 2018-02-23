@@ -154,7 +154,10 @@
         var description = $(this).parent().parent().siblings('.category-description');
         description.toggle(this.checked);
         if (!this.checked) {
-            description.find("textarea").froalaEditor('html.set', '');
+            description.find("textarea").froalaEditor('html.set', null);
+        } else {
+            description.find("textarea").froalaEditor('destroy');
+            description.find("textarea").froalaEditor($.fraola_creds);
         }
     });
 

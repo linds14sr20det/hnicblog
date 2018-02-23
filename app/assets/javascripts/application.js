@@ -18,5 +18,10 @@
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
 //= require cocoon
+//= require froala_editor.min.js
+
+$(document).ready(function(){
+    $('textarea:not(.no-wysiwyg)').froalaEditor();
+});
 
 $.fn.datepicker.defaults.format = "yyyy-mm-dd";

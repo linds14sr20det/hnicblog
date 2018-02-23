@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'aws-sdk', '~> 2'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cocoon'
+gem 'wysiwyg-rails'
+gem 'font-awesome-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

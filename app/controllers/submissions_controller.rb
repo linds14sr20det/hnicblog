@@ -26,6 +26,7 @@ class SubmissionsController < ApplicationController
     active_cohort.categories.each do |category|
       @submission.submission_categories.build({:category => category})
     end
+    @submission.team_members.new({name: current_user.name, email: current_user.email})
   end
 
   def create
@@ -45,7 +46,6 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     existing_s_c = @submission.submission_categories.map(&:category_id)
     categories = @submission.cohort.categories.reject { |category| existing_s_c.include?(category.id) }
-
     categories.each do |category|
       @submission.submission_categories.build({:category => category})
     end

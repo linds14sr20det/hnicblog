@@ -6,7 +6,8 @@
 
   <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
+    <%= select_tag 'titles', options_for_select(f.object.titles_with_other, f.object.selected_title), class: 'form-control title-selector' %>
+    <%= f.text_field :title, class: 'form-control title-input' %>
   </div>
 
   <div class="form-group">
@@ -15,3 +16,16 @@
   </div>
   <%= link_to_remove_association('Remove this person', f, class: 'btn btn-primary') %>
 </div>
+
+<script>
+    $(".title-selector").change(function(){
+        var titleInput = $(this).parent().find(".title-input");
+        if ($(this).val() === "Other (Please Specify)") {
+            titleInput.toggle(true);
+            titleInput.val("");
+        } else {
+            titleInput.toggle(false);
+            titleInput.val($(this).val());
+        }
+    });
+</script>

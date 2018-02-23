@@ -25,3 +25,7 @@ en:
     cta_manage_cohort: "Manage Cohorts"
     cta_view_submissions: "View current submissions"
     main_text: "Welcome to the CISC Awards submission system!"
+  submission:
+    team_member:
+      titles:
+        other: "Other (Please Specify)"

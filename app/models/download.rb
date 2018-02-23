@@ -9,7 +9,6 @@ class Download
 
   def to_pdf
     kit = PDFKit.new(as_html)
-    binding.pry
     kit.to_file("tmp/submission_#{submission.id}.pdf")
   end
 

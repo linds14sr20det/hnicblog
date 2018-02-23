@@ -38,8 +38,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cocoon'
 gem 'wysiwyg-rails'
 gem 'font-awesome-rails'
-gem 'wkhtmltopdf-heroku'
 gem 'pdfkit'
+gem 'render_anywhere', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

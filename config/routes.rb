@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   post   '/signup',  to: 'users#create'
   resources :users
   resources :cohorts
-  resources :submissions
+  resources :submissions do
+    resource :download, only: [:show]
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 end

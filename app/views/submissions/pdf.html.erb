@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= submission.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= submission.project_location %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= sanitize(submission.description) %>
+  </div>
+</div>
+<h3>Categories</h3>
+<table class="table table-striped">
+  <% submission.submission_categories.each do |submission_category| %>
+    <tr>
+      <td class="col-md-3"><b><%= submission_category.category.title %></b></td>
+      <td class="col-md-9"><%= sanitize(submission_category.description) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<% submission.attachments.each do |attachment| %>
+  <p>Attachment preview:</p>
+  <%= image_tag attachment.url, class: 'img-responsive' %>
+<% end %>

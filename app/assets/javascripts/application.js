@@ -21,7 +21,9 @@
 //= require froala_editor.min.js
 
 $(document).ready(function(){
-    $('textarea:not(.no-wysiwyg)').froalaEditor();
+    $('textarea:not(.no-wysiwyg)').froalaEditor({
+        toolbarStickyOffset: 50
+    });
 });
 
 $.fn.datepicker.defaults.format = "yyyy-mm-dd";

@@ -162,10 +162,16 @@
     });
 
     $(document).ready(function(){
-        $(".title-selector").filter(function(){return this.value !== "<%= t('submission.team_member.titles.other') %>"}).trigger('change');
+        dropDownClean();
     });
 
+    $('#team_member').on('cocoon:after-insert', function(e, insertedItem) {
+        dropDownClean()
+    });
 
+    function dropDownClean () {
+        $(".title-selector").filter(function(){return this.value !== "<%= t('submission.team_member.titles.other') %>"}).trigger('change');
+    }
 
     //TODO: Need to setup an autosave here.
 </script>

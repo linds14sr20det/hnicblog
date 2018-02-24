@@ -40,6 +40,14 @@ body {
   font-weight: bold;
 }
 
+/* Title row */
+
+.title-row {
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+}
+
 /* Users index */
 
 .users {
@@ -100,24 +108,3 @@ span.picture {
 .form-pad-bottom {
   padding-bottom: 20px;
 }
-
-@media(max-width:767px){}
-@media(min-width:768px){
-  .button-in-title {
-    position: relative;
-    text-align: center;
-    z-index: 1;
-    top: 0;
-    margin-bottom: 20px;
-  }
-}
-@media(min-width:992px){
-  .button-in-title {
-    position:absolute;
-    top: 20px;
-    right:0;
-  }
-}
-@media(min-width:1200px){}
-
-

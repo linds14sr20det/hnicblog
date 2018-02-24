@@ -1,11 +1,11 @@
 <% provide(:title, 'Current submissions') %>
 
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
+<div class="row title-row">
+  <div class="col-md-6 col-md-offset-3 text-center">
     <h1>Submissions</h1>
   </div>
-  <div class="col-xs-3">
-    <%= link_to "New Submission", new_submission_path, class: "btn btn-primary pull-right"%>
+  <div class="col--3" style="margin-left:auto">
+    <%= link_to "New Submission", new_submission_path, class: "btn btn-primary" %>
   </div>
 </div>
 
@@ -30,11 +30,11 @@
 </div>
 
 <div class="well">
-  <div class="row">
-    <div class="col-xs-9">
+  <div class="row title-row">
+    <div class="col-md-9">
       <h3>Past Submissions</h3>
     </div>
-    <div class="col-xs-3">
+    <div class="col-md-3">
       <button class="btn btn-primary pull-right" type="button" data-toggle="collapse" data-target="#old-submissions" aria-expanded="false" aria-controls="collapseExample">
         Show
       </button>

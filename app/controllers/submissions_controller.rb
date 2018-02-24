@@ -1,13 +1,14 @@
 class SubmissionsController < ApplicationController
   before_action :logged_in_user
-  before_action :submissions_for_user, only: [:show, :edit, :update, :destroy]
+  before_action :submissions_for_user_or_admin, only: [:edit, :update, :destroy]
+  before_action :submissions_for_user_judge_or_admin, only: [:show]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
     if current_user.is_admin?
       submissions = Submission.joins(:cohort)
     elsif current_user.is_judge?
-      submissions = Submission.joins(:cohort).where(user_id: current_user.id)
+      submissions = Submission.joins(:cohort).where("submitted = true OR user_id = #{current_user.id}")
     else
       submissions = Submission.joins(:cohort).where(user_id: current_user.id)
     end
@@ -81,9 +82,14 @@ class SubmissionsController < ApplicationController
   # Before filters
 
   # Confirms the submission is owned by the current user.
-  def submissions_for_user
+  def submissions_for_user_or_admin
     @submission = Submission.find(params[:id])
-    redirect_to(root_url) unless current_user?(@submission.user) || current_user.is_admin? || current_user.is_judge?
+    redirect_to(root_url) unless current_user?(@submission.user) || current_user.is_admin?
+  end
+
+  def submissions_for_user_judge_or_admin
+    @submission = Submission.find(params[:id])
+    redirect_to(root_url) unless current_user?(@submission.user) || current_user.is_judge? || current_user.is_admin?
   end
 
   def set_s3_direct_post

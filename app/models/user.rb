@@ -78,6 +78,11 @@ class User < ApplicationRecord
     false
   end
 
+  def is_admin_or_owner?(submission)
+    return true if self.is_admin? || submission.user == self
+    false
+  end
+
   private
 
     # Converts email to all lower-case.

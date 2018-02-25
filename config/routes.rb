@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
   root   'application#home'
-  get    '/report',  to: 'static_pages#report'
-  get    '/about',   to: 'static_pages#about'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
@@ -10,6 +8,7 @@ Rails.application.routes.draw do
   post   '/signup',  to: 'users#create'
   resources :users
   resources :cohorts
+  post '/bulk_pdf', to: 'downloads#bulk_pdf'
   resources :submissions do
     resource :download, only: [:show]
   end

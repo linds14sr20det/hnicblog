@@ -10,21 +10,25 @@
 </div>
 
 <% unless @cohorts.empty? %>
-  <% @cohorts.each do |cohort| %>
-    <div class="well">
-      <div class="row">
-        <div class="col-md-12">
-          <h3>Submissions for <%= "#{cohort.start_at} to #{cohort.end_at}" %></h3>
+  <%= form_tag bulk_pdf_path, method: :post do %>
+    <% @cohorts.each do |cohort| %>
+      <div class="well">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Submissions for <%= "#{cohort.start_at} to #{cohort.end_at}" %></h3>
+          </div>
         </div>
+        <%= render partial: "cohort_submissions", locals: {
+            title: 'Submitted',
+            submissions: cohort.submissions.submitted.reject{|submission| !@submissions.include?(submission)}
+        } unless cohort.submissions.submitted.reject{|submission| !@submissions.include?(submission)}.empty? %>
+        <%= render partial: "cohort_submissions", locals: {
+            title: 'Incomplete',
+            submissions: cohort.submissions.incomplete.reject{|submission| !@submissions.include?(submission)}
+        } unless cohort.submissions.incomplete.reject{|submission| !@submissions.include?(submission)}.empty? %>
       </div>
-      <%= render partial: "cohort_submissions", locals: {
-          title: 'Submitted',
-          submissions: cohort.submissions.submitted.reject{|submission| !@submissions.include?(submission)}
-      } unless cohort.submissions.submitted.reject{|submission| !@submissions.include?(submission)}.empty? %>
-      <%= render partial: "cohort_submissions", locals: {
-          title: 'Incomplete',
-          submissions: cohort.submissions.incomplete.reject{|submission| !@submissions.include?(submission)}
-      } unless cohort.submissions.incomplete.reject{|submission| !@submissions.include?(submission)}.empty? %>
-    </div>
-  <% end %>
+    <% end %>
+  <%= submit_tag "Download Selected PDF's", class: "btn btn-primary" %>
 <% end %>
+<% end %>
+

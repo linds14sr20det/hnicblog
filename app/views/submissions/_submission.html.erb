@@ -1,5 +1,5 @@
 <tr>
-  <td><%= submission.name %></td>
+  <td><%= check_box_tag "submission_ids[#{submission.id}]" %> <%= submission.name %></td>
   <td><%= submission.project_location %></td>
   <td><%= submission.submission_categories.map{|submission_category| submission_category.category.title}.join(", ") %></td>
   <td>

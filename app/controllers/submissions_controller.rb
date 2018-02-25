@@ -5,16 +5,14 @@ class SubmissionsController < ApplicationController
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
-    @cohorts = Cohort.all
-    # if current_user.is_admin?
-    #   submissions = Submission.joins(:cohort)
-    # elsif current_user.is_judge?
-    #   submissions = Submission.joins(:cohort).where("submitted = true OR user_id = #{current_user.id}")
-    # else
-    #   submissions = Submission.joins(:cohort).where(user_id: current_user.id)
-    # end
-    # @old_submissions = submissions.where("cohorts.active = false").order(:created_at).paginate(page: params[:old_page], :per_page => 12)
-    # @active_submissions = submissions.where("cohorts.active = true").order(:created_at).paginate(page: params[:active_page], :per_page => 12)
+    if current_user.is_admin?
+      @submissions = Submission.all
+    elsif current_user.is_judge?
+      @submissions = Submission.where("submitted = true OR user_id = #{current_user.id}")
+    else
+      @submissions = Submission.where(user_id: current_user.id)
+    end
+    @cohorts = Cohort.order({active: "DESC"}).order({end_at: "DESC"}).find(@submissions.map(&:cohort_id).uniq)
   end
 
   def show

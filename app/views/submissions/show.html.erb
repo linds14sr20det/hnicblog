@@ -30,8 +30,5 @@
   <%= image_tag attachment.url, class: 'img-responsive' %>
 <% end %>
 
-
-<%= sanitize("#{link_to 'Edit', edit_submission_path(@submission)} |") if current_user.is_admin_or_owner?(@submission) %>
 <%= link_to 'Back', submissions_path %> |
-<%= link_to 'Download PDF', submission_download_path(@submission, format: 'pdf'), target: '_blank', class: 'download' %>
-
+<%= sanitize(controls_for @submission, current_user) %>

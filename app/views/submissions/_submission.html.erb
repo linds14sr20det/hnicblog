@@ -3,10 +3,7 @@
   <td><%= submission.project_location %></td>
   <td><%= submission.submission_categories.map{|submission_category| submission_category.category.title}.join(", ") %></td>
   <td>
-    <%= link_to 'view', submission_path(submission) %>
-    <% if current_user.is_admin_or_owner?(submission) %>
-      | <%= link_to 'edit', edit_submission_path(submission) %>
-      | <%= link_to "delete", submission, method: :delete, data: { confirm: "You sure?" } %>
-    <% end %>
+    <%= link_to 'view', submission_path(submission) %> |
+    <%= sanitize(controls_for submission, current_user) %>
   </td>
 </tr>

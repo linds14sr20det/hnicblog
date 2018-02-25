@@ -4,20 +4,27 @@
   <div class="col-md-6 col-md-offset-3 text-center">
     <h1>Submissions</h1>
   </div>
-  <div class="col--3" style="margin-left:auto">
+  <div style="margin-left:auto">
     <%= link_to "New Submission", new_submission_path, class: "btn btn-primary" %>
   </div>
 </div>
 
-<% @cohorts.each do |cohort| %>
-  <div class="well">
-    <div class="row">
-      <div class="col-md-12">
-        <h3>Submissions for <%= "#{cohort.start_at} to #{cohort.end_at}" %> </h3>
+<% unless @cohorts.empty? %>
+  <% @cohorts.each do |cohort| %>
+    <div class="well">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Submissions for <%= "#{cohort.start_at} to #{cohort.end_at}" %></h3>
+        </div>
       </div>
+      <%= render partial: "cohort_submissions", locals: {
+          title: 'Submitted',
+          submissions: cohort.submissions.submitted.reject{|submission| !@submissions.include?(submission)}
+      } unless cohort.submissions.submitted.reject{|submission| !@submissions.include?(submission)}.empty? %>
+      <%= render partial: "cohort_submissions", locals: {
+          title: 'Incomplete',
+          submissions: cohort.submissions.incomplete.reject{|submission| !@submissions.include?(submission)}
+      } unless cohort.submissions.incomplete.reject{|submission| !@submissions.include?(submission)}.empty? %>
     </div>
-    <!-- for each submission state -->
-    <%= render partial: "cohort_submissions", locals: { title: 'Submitted', submissions: cohort.submissions.submitted } %>
-    <%= render partial: "cohort_submissions", locals: { title: 'Incomplete', submissions: cohort.submissions.incomplete } %>
-  </div>
+  <% end %>
 <% end %>

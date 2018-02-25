@@ -83,7 +83,7 @@ class SubmissionsController < ApplicationController
   # Confirms the submission is owned by the current user.
   def submissions_for_user_or_admin
     @submission = Submission.find(params[:id])
-    redirect_to(root_url) unless current_user?(@submission.user) || current_user.is_admin?
+    redirect_to(root_url) unless (current_user?(@submission.user) && !@submission.submitted) || current_user.is_admin?
   end
 
   def submissions_for_user_judge_or_admin

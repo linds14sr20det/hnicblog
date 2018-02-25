@@ -9,6 +9,7 @@ class Download
 
   def to_pdf
     kit = PDFKit.new(as_html)
+    File.new("tmp/submission_#{submission.id}.pdf", "wb")
     kit.to_file("tmp/submission_#{submission.id}.pdf")
   end
 

@@ -1,0 +1,12 @@
+<h3><%= title %></h3>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Project Name</th>
+    <th>Project Location</th>
+    <th>Project Categories</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <%= render submissions unless submissions.empty? %>
+</table>

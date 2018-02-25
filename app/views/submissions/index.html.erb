@@ -9,48 +9,15 @@
   </div>
 </div>
 
-<div class="well">
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Current Open Submissions</h3>
+<% @cohorts.each do |cohort| %>
+  <div class="well">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Submissions for <%= "#{cohort.start_at} to #{cohort.end_at}" %> </h3>
+      </div>
     </div>
+    <!-- for each submission state -->
+    <%= render partial: "cohort_submissions", locals: { title: 'Submitted', submissions: cohort.submissions.submitted } %>
+    <%= render partial: "cohort_submissions", locals: { title: 'Incomplete', submissions: cohort.submissions.incomplete } %>
   </div>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Project Name</th>
-      <th>Project Location</th>
-      <th>Project Categories</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <%= render @active_submissions unless @active_submissions.empty? %>
-  </table>
-  <%= will_paginate @active_submissions, param_name: :active_page %>
-</div>
-
-<div class="well">
-  <div class="row title-row">
-    <div class="col-md-9">
-      <h3>Past Submissions</h3>
-    </div>
-    <div class="col-md-3">
-      <button class="btn btn-primary pull-right" type="button" data-toggle="collapse" data-target="#old-submissions" aria-expanded="false" aria-controls="collapseExample">
-        Show
-      </button>
-    </div>
-  </div>
-  <div class="collapse" id="old-submissions">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>Project Name</th>
-        <th>Project Description</th>
-        <th>Actions</th>
-      </tr>
-      </thead>
-      <%= render @old_submissions %>
-    </table>
-    <%= will_paginate @old_submissions, param_name: :old_page %>
-  </div>
-</div>
+<% end %>

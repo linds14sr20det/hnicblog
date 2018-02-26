@@ -4,7 +4,7 @@
       <%= image_tag f.object.url, class: 'img-responsive' %>
     <% else %>
       <%= f.label :attachment_uploader %>
-      <%= f.file_field :attachment_uploader, accept: "image/*;capture=camera", class: 'form-control' %>
+      <%= f.file_field :attachment_uploader, accept: "image/*;capture=camera", multiple: 'multiple', class: 'form-control' %>
     <% end %>
     <%= f.hidden_field :url, class: 'url-holder' %>
   </div>

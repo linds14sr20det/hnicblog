@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@cisc-icca.ca'
+  default from: 'noreply@edmontononslaught.ca'
   layout 'mailer'
 end

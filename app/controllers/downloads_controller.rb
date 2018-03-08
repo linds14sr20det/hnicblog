@@ -48,10 +48,6 @@ class DownloadsController < ApplicationController
     }
   end
 
-  def submissions_for_user_judge_or_admin
-    redirect_to(root_url) unless current_user?(submission.user) || current_user.is_judge? || current_user.is_admin?
-  end
-
   def clear_tmp
     #TODO: run this on a delayed task, or clear the whole folder first
     #File.delete("tmp/submission_#{submission.id}.pdf")

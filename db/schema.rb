@@ -10,26 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223061738) do
+ActiveRecord::Schema.define(version: 20180219192742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
     t.string   "url"
-    t.integer  "submission_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["submission_id"], name: "index_attachments_on_submission_id", using: :btree
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "cohort_id"
-    t.index ["cohort_id"], name: "index_categories_on_cohort_id", using: :btree
+    t.integer  "system_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["system_id"], name: "index_attachments_on_system_id", using: :btree
   end
 
   create_table "cohorts", force: :cascade do |t|
@@ -40,41 +31,16 @@ ActiveRecord::Schema.define(version: 20180223061738) do
     t.boolean  "active",     default: false
   end
 
-  create_table "submission_categories", force: :cascade do |t|
-    t.string   "description"
-    t.integer  "category_id"
-    t.integer  "submission_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["category_id"], name: "index_submission_categories_on_category_id", using: :btree
-    t.index ["submission_id"], name: "index_submission_categories_on_submission_id", using: :btree
-  end
-
-  create_table "submissions", force: :cascade do |t|
-    t.integer  "cohort_id"
-    t.integer  "user_id"
-    t.string   "description"
-    t.string   "name"
-    t.boolean  "submitted"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.string   "project_location"
-    t.integer  "cisc_number"
-    t.boolean  "contact_cisc",              default: false
-    t.datetime "steelwork_completion_date"
-    t.string   "brief_description"
-    t.index ["cohort_id"], name: "index_submissions_on_cohort_id", using: :btree
-    t.index ["user_id"], name: "index_submissions_on_user_id", using: :btree
-  end
-
-  create_table "team_members", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
+  create_table "systems", force: :cascade do |t|
     t.string   "title"
-    t.integer  "submission_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["submission_id"], name: "index_team_members_on_submission_id", using: :btree
+    t.string   "description"
+    t.integer  "max_players"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "cohort_id"
+    t.index ["cohort_id"], name: "index_systems_on_cohort_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,7 +55,6 @@ ActiveRecord::Schema.define(version: 20180223061738) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.integer  "role",              default: 0
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
@@ -99,9 +64,6 @@ ActiveRecord::Schema.define(version: 20180223061738) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "attachments", "submissions"
-  add_foreign_key "categories", "cohorts"
-  add_foreign_key "submission_categories", "categories"
-  add_foreign_key "submission_categories", "submissions"
-  add_foreign_key "team_members", "submissions"
+  add_foreign_key "attachments", "systems"
+  add_foreign_key "systems", "cohorts"
 end

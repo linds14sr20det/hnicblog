@@ -12,11 +12,6 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
-  # Confirms an admin user.
-  def admin_user
-    redirect_to(root_url) unless current_user.is_admin?
-  end
-
   # Returns true if the given user is the current user.
   def current_user?(user)
     user == current_user

@@ -1,6 +1,5 @@
 class CohortsController < ApplicationController
   before_action :logged_in_user
-  before_action :admin_user
 
   def index
     @active_cohort = Cohort.where(active: true)

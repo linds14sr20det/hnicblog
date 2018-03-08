@@ -16,11 +16,11 @@
     <div class="col-md-12">
       <h3>Categories</h3>
       <div id="categories">
-        <%= f.fields_for :categories do |category| %>
+        <%= f.fields_for :systems do |category| %>
           <%= render 'category_fields', :f => category %>
         <% end %>
         <div class="links">
-          <%= link_to_add_association 'Add category', f, :categories, class: 'btn btn-primary btn-block' %>
+          <%= link_to_add_association 'Add category', f, :systems, class: 'btn btn-primary btn-block' %>
         </div>
       </div>
       <hr />

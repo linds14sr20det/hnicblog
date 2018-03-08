@@ -1,7 +1,5 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
-  enum role: [:applicant, :judge, :admin]
-  has_many :submissions
   before_save :downcase_email
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 50 }
@@ -66,16 +64,6 @@ class User < ApplicationRecord
   # Returns true if a password reset has expired.
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
-  end
-
-  def is_admin?
-    return true if role == :admin.to_s
-    false
-  end
-
-  def is_judge?
-    return true if role == :judge.to_s
-    false
   end
 
   private

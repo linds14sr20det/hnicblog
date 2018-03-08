@@ -1,30 +1,19 @@
 # Create some users These shouldn't change after initial deploy
 
 admin = User.create!(
+    email:  "edmontononslaught@gmail.com",
+    name: "Ward Kapach",
+    password_digest: "$2a$10$OTvrczPu1h5zpo8.b61peOm6hHNyvu9aji3R1rKCVoR/JhCpPwXee", #password
+    activated: true,
+    activated_at: Time.zone.now
+)
+
+admin = User.create!(
     email:  "stephen.r.lind@gmail.com",
     name: "Stephen Lind",
     password_digest: "$2a$10$OTvrczPu1h5zpo8.b61peOm6hHNyvu9aji3R1rKCVoR/JhCpPwXee", #password
     activated: true,
-    activated_at: Time.zone.now,
-    role: 2
-)
-
-judge = User.create!(
-    email:  "judge@gmail.com",
-    name: "Sylvester Stallone",
-    password_digest: "$2a$10$OTvrczPu1h5zpo8.b61peOm6hHNyvu9aji3R1rKCVoR/JhCpPwXee", #password
-    activated: true,
-    activated_at: Time.zone.now,
-    role: 1
-)
-
-submitter = User.create!(
-    email:  "frank@rjc.com",
-    name: "Frank Cavalier",
-    password_digest: "$2a$10$OTvrczPu1h5zpo8.b61peOm6hHNyvu9aji3R1rKCVoR/JhCpPwXee", #password
-    activated: true,
-    activated_at: Time.zone.now,
-    role: 0
+    activated_at: Time.zone.now
 )
 
 # Create a bunch of test accounts

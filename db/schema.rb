@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219192742) do
+ActiveRecord::Schema.define(version: 20180308055559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,20 +26,20 @@ ActiveRecord::Schema.define(version: 20180219192742) do
   create_table "cohorts", force: :cascade do |t|
     t.datetime "start_at"
     t.datetime "end_at"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "active",     default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "active",           default: false
+    t.string   "date_description"
   end
 
   create_table "systems", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.integer  "max_players"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "cohort_id"
+    t.string   "date_description"
     t.index ["cohort_id"], name: "index_systems_on_cohort_id", using: :btree
   end
 

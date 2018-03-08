@@ -1,5 +1,6 @@
 class CohortsController < ApplicationController
   before_action :logged_in_user
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
     @active_cohort = Cohort.where(active: true)
@@ -46,7 +47,10 @@ class CohortsController < ApplicationController
   private
 
     def cohort_params
-      params.require(:cohort).permit(:start_at, :end_at, :active, categories_attributes: [:id, :title, :description, :_destroy])
+      params.require(:cohort).permit(:start_at, :end_at, :date_description, :active, systems_attributes: [:id, :title, :description, :date_description, :max_players, :_destroy, attachment_attributes: [:url]])
     end
 
+    def set_s3_direct_post
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+    end
 end

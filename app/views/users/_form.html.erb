@@ -12,10 +12,5 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <% if current_user.present? %>
-    <%= f.label :role %>
-    <%= f.select :role, User.roles.keys.map { |r| [r.humanize, r] } %>
-  <% end %>
-
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

@@ -22,6 +22,12 @@
   <div class="form-group">
     <%= f.fields_for :attachment_attributes do |ff| %>
       <%= ff.label :attachment_uploader, "Players pack" %>
+      <% unless f.object.attachment.nil? %>
+        <br>
+        <a href="<%=f.object.attachment.url %>">View Current Attached Players Pack</a>
+        <br>
+        -- OR --
+      <% end %>
       <%= ff.file_field :attachment_uploader, class: 'form-control' %>
       <%= ff.hidden_field :url, class: 'url-holder' %>
     <% end %>

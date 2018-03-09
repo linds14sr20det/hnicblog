@@ -1,10 +1,9 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<nav class="navbar navbar-fixed-top navbar-inverse">
   <%= link_to image_tag("hobbynight70.png"), root_path, class: "logo" %>
   <%= link_to "HNIC.", root_path, class: "logo-text" %>
 
   <% if logged_in? %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Users", users_path %></li>
         <li><%= link_to "Posts", posts_path %></li>
@@ -21,6 +20,5 @@
           </ul>
         </li>
       </ul>
-    </nav>
   <% end %>
-</header>
+</nav>

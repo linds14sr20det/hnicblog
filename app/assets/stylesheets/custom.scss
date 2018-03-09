@@ -14,13 +14,27 @@ html, body {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 90px;
   padding-bottom: 40px;
 }
 
-.navbar-fixed-top {
+.navbar {
   padding: 0 50px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
+  .navbar-nav {
+    float:right;
+    li {
+      a{
+        line-height:90px;
+        padding: 0 15px;
+      }
+      ul{
+        a{
+          line-height: 20px;
+        }
+      }
+    }
+  }
 }
 
 .container {

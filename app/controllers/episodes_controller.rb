@@ -2,7 +2,7 @@ class EpisodesController < ApplicationController
   before_action :logged_in_user, only: [:update_feed]
 
   def index
-    @episodes = Episode.all.paginate(page: params[:page], :per_page => 12)
+    @episodes = Episode.order(:published_date => :desc).paginate(page: params[:page], :per_page => 12)
   end
 
   def show

@@ -10,37 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308055559) do
+ActiveRecord::Schema.define(version: 20180216181933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
     t.string   "url"
-    t.integer  "system_id"
+    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["system_id"], name: "index_attachments_on_system_id", using: :btree
+    t.index ["post_id"], name: "index_attachments_on_post_id", using: :btree
   end
 
-  create_table "cohorts", force: :cascade do |t|
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.boolean  "active",           default: false
-    t.string   "date_description"
-  end
-
-  create_table "systems", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
+    t.datetime "publish_date"
     t.string   "title"
-    t.string   "description"
-    t.integer  "max_players"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "cohort_id"
-    t.string   "date_description"
-    t.index ["cohort_id"], name: "index_systems_on_cohort_id", using: :btree
+    t.string   "body"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,12 +48,6 @@ ActiveRecord::Schema.define(version: 20180308055559) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
-  create_table "website_configurations", force: :cascade do |t|
-    t.string   "site_intro"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "attachments", "systems"
-  add_foreign_key "systems", "cohorts"
+  add_foreign_key "attachments", "posts"
+  add_foreign_key "posts", "users"
 end

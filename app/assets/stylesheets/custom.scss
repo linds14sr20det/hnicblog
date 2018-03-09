@@ -37,6 +37,7 @@ body {
 }
 
 .container {
+  margin-top: 32px;
   height: 100%;
 }
 
@@ -134,4 +135,23 @@ span.picture {
 
 .form-pad-bottom {
   padding-bottom: 20px;
+}
+
+.episode {
+  margin-bottom: 32px;
+  .episode-card{
+    border: 1px solid #e2e2e2;
+    padding: 12px;
+    background: #f4f4f4;
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    transition: all 250ms;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    .episode-title {
+      font-weight: 600;
+      font-size: 40px;
+      top: 50%;
+      margin-bottom: 10px;
+    }
+  }
 }

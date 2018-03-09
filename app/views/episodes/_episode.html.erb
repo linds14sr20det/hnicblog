@@ -1,0 +1,9 @@
+<div class="col-md-4 episode">
+  <div class="episode-card">
+    <div class="episode-title">
+      <%= link_to episode.title, episode %>
+    </div>
+    <small><p style="margin-top:-10px"> <%= episode.published_date.strftime("Published: %F") %> | <a href="<%= episode.url %>">Listen on Podbean</a></p></small>
+    <%= truncate(strip_tags(episode.description), :length => 120) %>
+  </div>
+</div>

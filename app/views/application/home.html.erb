@@ -1,8 +1,9 @@
-<div class="center jumbotron sg-home">
-  <% unless current_user.nil? %>
-    <%= link_to t("home.cta_manage_cohort"), posts_path, class: "cta-submit btn btn-lg btn-primary"%>
-  <% end %>
-</div>
+<div class="sg-spacer"></div>
+<%= link_to root_path do %>
+  <div class="sg-home episode"></div>
+<% end %>
 
-<div><%= t("home.main_text")%></div>
-
+<div class="sg-spacer"></div>
+<%= link_to root_path do %>
+  <div class="sg-home blog"></div>
+<% end %>

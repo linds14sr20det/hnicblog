@@ -15,7 +15,6 @@ html, body {
 
 body {
   padding-top: 90px;
-  padding-bottom: 40px;
 }
 
 .navbar {
@@ -73,20 +72,28 @@ span.picture {
   }
 }
 
+.sg-spacer {
+  height: 5%;
+}
+
 .sg-home {
-  background: image-url("Banner1.jpg");
-  background-size: cover;
-  background-position:50% 50%;
-  height: 40%;
+  height: 42%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
   resize: vertical;
-
-  .cta-submit {
-    margin-right: auto;
-    margin-left: auto;
+  margin-bottom: 0;
+  padding: 0;
+  &.episode {
+    background: image-url("Banner1.jpg");
+    background-size: cover;
+    background-position :50% 50%;
+  }
+  &.blog {
+    background: image-url("Banner1.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
   }
 }
 

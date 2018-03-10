@@ -14,8 +14,9 @@ class EpisodesController < ApplicationController
     require 'open-uri'
     rss = RSS::Parser.parse(open('https://hobbynight.podbean.com/feed/').read, false)
     rss.items.each do |result|
+      binding.pry
       episode = Episode.find_or_create_by(title: result.title)
-      episode.update(description: result.description, published_date: result.pubDate, url: result.link, audio_url: result.enclosure.url)
+      episode.update(description: result.description, published_date: result.pubDate, url: result.link, audio_url: result.enclosure.url, audio_format: '')
     end
     redirect_to action: "index"
   end

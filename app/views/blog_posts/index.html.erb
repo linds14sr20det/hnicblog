@@ -1,0 +1,9 @@
+<% provide(:title, 'All Posts') %>
+<div class="container">
+  <% unless @posts.nil? %>
+    <% @posts.each do |post| %>
+      <%= render :partial => 'blog_post', :locals => {:post => post} %>
+    <% end %>
+    <%= will_paginate @posts %>
+  <% end %>
+</div>

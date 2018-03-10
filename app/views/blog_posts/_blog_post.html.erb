@@ -1,0 +1,4 @@
+<div>
+  <%= link_to(post.title, blog_post_path(post)) %>
+  <%= truncate(strip_tags(post.body), :length => 120)  %>
+</div>

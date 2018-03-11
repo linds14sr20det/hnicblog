@@ -4,6 +4,8 @@
     <% @posts.each do |post| %>
       <%= render :partial => 'blog_post', :locals => {:post => post} %>
     <% end %>
-    <%= will_paginate @posts %>
+    <div class="row">
+      <div class="col-lg-12"><%= will_paginate @posts %></div>
+    </div>
   <% end %>
 </div>

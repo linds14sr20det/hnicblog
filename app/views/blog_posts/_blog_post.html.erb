@@ -1,4 +1,12 @@
-<div>
-  <%= link_to(post.title, blog_post_path(post)) %>
-  <%= truncate(strip_tags(post.body), :length => 120)  %>
+<div class="row">
+  <div class="col-md-12 blog-post">
+    <div class="blog-post-card">
+      <img class="blog-post-thumb-index" src="https://www.frontlinegaming.org/wp-content/uploads/2018/03/20180310_111658-1024x576.jpg">
+      <div class="blog-post-title">
+        <%= link_to(post.title, blog_post_path(post)) %>
+      </div>
+      <small><p style="margin-top:-10px"> <%= post.publish_date.strftime("Published: %F") %></p></small>
+      <%= truncate(strip_tags(post.body), :length => 120)  %>
+    </div>
+  </div>
 </div>

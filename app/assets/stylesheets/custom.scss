@@ -162,6 +162,22 @@ audio {
 
 .blog-post {
   margin-bottom: 32px;
+  .blog-post-title {
+    font-weight: 600;
+    font-size: 40px;
+    top: 50%;
+    margin-bottom: 10px;
+  }
+  img{
+    border: 1px solid #c2c2c2;
+    padding: 3px;
+    display: block;
+    object-fit: cover;
+    max-height: 340px;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 5px 4px rgba(0,0,0,0.22);
+  }
   .blog-post-card{
     border: 1px solid #e2e2e2;
     padding: 12px;
@@ -176,12 +192,6 @@ audio {
       width:100px;
       height:100px;
       margin-right: 20px;
-      margin-bottom: 10px;
-    }
-    .blog-post-title {
-      font-weight: 600;
-      font-size: 40px;
-      top: 50%;
       margin-bottom: 10px;
     }
   }

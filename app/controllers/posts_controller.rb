@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:publish_date, :title, :body, attachments_attributes: [:url])
+      params.require(:post).permit(:title, :publish_date, :user_id, :body, attachments_attributes: [:url])
     end
 
     def set_s3_direct_post

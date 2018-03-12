@@ -11,8 +11,13 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :user, 'Author' %>
+    <%= collection_select(:post, :user_id, User.all, :id, :name, {:selected => @post.user.id}) %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control image-uploader' %>
+    <%= f.text_area :body, class: 'form-control' %>
   </div>
 
   <div class="row">

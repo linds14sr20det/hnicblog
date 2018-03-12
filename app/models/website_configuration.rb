@@ -1,2 +1,0 @@
-class WebsiteConfiguration < ApplicationRecord
-end

@@ -153,7 +153,7 @@ span.picture {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     .episode-title {
       font-weight: 600;
-      font-size: 40px;
+      font-size: 30px;
       top: 50%;
       margin-bottom: 10px;
     }
@@ -168,7 +168,7 @@ audio {
   margin-bottom: 32px;
   .blog-post-title {
     font-weight: 600;
-    font-size: 40px;
+    font-size: 30px;
     top: 50%;
     margin-bottom: 10px;
   }
@@ -178,6 +178,7 @@ audio {
     display: block;
     object-fit: cover;
     max-height: 340px;
+    max-width: 100%;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 20px;

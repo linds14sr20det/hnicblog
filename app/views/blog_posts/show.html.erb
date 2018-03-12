@@ -1,6 +1,6 @@
 <div class="container">
   <div class="blog-post">
-    <h1 class="display-3"><%= @post.title %></h1>
+    <div class="blog-post-title"><%= @post.title %></div>
     <small><p>Posted on <%= @post.publish_date.strftime("Published: %F") %> by <%= @post.user.nil? ? 'unknown' : @post.user.name %></p></small>
     <%= sanitize(@post.body) %>
   </div>

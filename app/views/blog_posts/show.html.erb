@@ -2,7 +2,6 @@
   <div class="blog-post">
     <h1 class="display-3"><%= @post.title %></h1>
     <small><p>Posted on <%= @post.publish_date.strftime("Published: %F") %> by --author--</p></small>
-    <img class="blog-post" src="https://www.frontlinegaming.org/wp-content/uploads/2018/03/20180310_111658-1024x576.jpg">
     <%= sanitize(@post.body) %>
   </div>
 </div>

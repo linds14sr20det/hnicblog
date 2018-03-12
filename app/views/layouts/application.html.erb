@@ -15,5 +15,16 @@
       <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
   <%= yield %>
+  <script>
+      $.fraola_initializer = {
+          toolbarStickyOffset: 50,
+          key: 'PG-10dpj1xB3wwdqwI2J3B10B7B7A5F4igqknsfxyG5hcj1==',
+          imageUploadToS3: <%= @aws_data.to_json.html_safe %>,
+      };
+
+      $(document).ready(function(){
+          $('textarea:not(.no-wysiwyg)').froalaEditor($.fraola_initializer);
+      });
+  </script>
 </body>
 </html>

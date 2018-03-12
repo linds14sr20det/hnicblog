@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
-    @posts = Post.all.paginate(page: params[:page], :per_page => 12)
+    @posts = Post.all.order('publish_date DESC').paginate(page: params[:page], :per_page => 12)
   end
 
   def new

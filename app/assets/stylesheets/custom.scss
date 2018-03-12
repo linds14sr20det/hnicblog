@@ -17,6 +17,10 @@ body {
   padding-top: 90px;
 }
 
+form {
+  margin-bottom: 30px;
+}
+
 .navbar {
   padding: 0 50px;
   margin-bottom: 0;
@@ -176,6 +180,7 @@ audio {
     max-height: 340px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 20px;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 5px 4px rgba(0,0,0,0.22);
   }
   .blog-post-card{

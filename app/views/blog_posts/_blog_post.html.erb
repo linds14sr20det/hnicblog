@@ -5,7 +5,7 @@
       <div class="blog-post-title">
         <%= link_to(post.title, blog_post_path(post)) %>
       </div>
-      <small><p style="margin-top:-10px"> <%= post.publish_date.strftime("Published: %F") %></p></small>
+      <small><p style="margin-top:-10px"> <%= post.publish_date.strftime("Published: %F") %> by <%= post.user.nil? ? 'unknown' : post.user.name %></p></small>
       <%= truncate(strip_tags(post.body), :length => 120)  %>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="blog-post">
     <h1 class="display-3"><%= @post.title %></h1>
-    <small><p>Posted on <%= @post.publish_date.strftime("Published: %F") %> by --author--</p></small>
+    <small><p>Posted on <%= @post.publish_date.strftime("Published: %F") %> by <%= @post.user.nil? ? 'unknown' : @post.user.name %></p></small>
     <%= sanitize(@post.body) %>
   </div>
 </div>

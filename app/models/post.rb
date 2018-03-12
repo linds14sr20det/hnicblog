@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :attachments, inverse_of: :post, dependent: :destroy
-  #TODO: validate start is before end
-  accepts_nested_attributes_for :attachments, reject_if: :all_blank, allow_destroy: true
+  validates :title, presence: true
+  validates :publish_date, presence: true
+  validates :body, presence: true
 
   def first_image
     html = Nokogiri::HTML.fragment(body)

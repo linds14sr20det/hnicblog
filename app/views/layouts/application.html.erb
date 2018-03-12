@@ -20,6 +20,18 @@
           toolbarStickyOffset: 50,
           key: 'PG-10dpj1xB3wwdqwI2J3B10B7B7A5F4igqknsfxyG5hcj1==',
           imageUploadToS3: <%= @aws_data.to_json.html_safe %>,
+          toolbarButtons: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertImage'],
+          linkList: [
+              {
+                  text: 'Games Workshop',
+                  href: 'https://games-workshop.com',
+                  target: '_blank'
+              },
+              {
+                  text: 'HNIC Facebook',
+                  href: 'https://www.facebook.com/HobbyNightInCanada/'
+              }
+          ]
       };
 
       $(document).ready(function(){

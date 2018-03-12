@@ -20,5 +20,6 @@
 //= require cocoon
 //= require froala_editor.min.js
 //= require plugins/image.min.js
+//= require plugins/link.min.js
 
 $.fn.datepicker.defaults.format = "yyyy-mm-dd";

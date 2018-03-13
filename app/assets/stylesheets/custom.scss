@@ -21,45 +21,42 @@ form {
   margin-bottom: 30px;
 }
 
-.navbar {
-  padding: 0 50px;
-  margin-bottom: 0;
-  .navbar-nav {
-    float:right;
-    li {
-      a{
-        line-height:90px;
-        padding: 0 15px;
-      }
-      ul{
-        a{
-          line-height: 20px;
-        }
-      }
-    }
-  }
-}
-
 .container {
-  margin-top: 32px;
   height: 100%;
 }
 
 /* header */
-
-.logo {
-  padding: 10px 0;
-  float: left;
+.navbar-header {
+  width: 100%;
+  float: none;
+}
+.navbar-toggle {
+  display: block;
+}
+.navbar-collapse.collapse {
+  display: none!important;
+}
+.navbar-nav {
+  float: none!important;
+}
+.navbar-nav>li {
+  float: none;
+}
+.navbar-collapse{
+  margin-top: 45px;
+}
+.navbar-collapse.collapse.in{
+  display:block !important;
 }
 
 .logo-text {
-  float: right;
   font-size: 1.7em;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
-  line-height: 90px;
+  line-height: 50px;
+  margin-right: 15px;
 }
 
 /* Title row */

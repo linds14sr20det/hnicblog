@@ -65,11 +65,18 @@ form {
   margin-top: -50px; /* negative value of footer height */
   height: 50px;
   clear: both;
-  padding-top: 20px;
   background: #333333;
   z-index: 3;
-  i {
-    color: white;
+  .social-links {
+    text-align: center;
+    line-height: 50px;
+    .social-link {
+      padding-left: 8%;
+      padding-right: 8%;
+      i {
+        color: white;
+      }
+    }
   }
 }
 
@@ -208,8 +215,8 @@ audio {
     .blog-post-thumb-index {
       float: left;
       object-fit: cover;
-      width:100px;
-      height:100px;
+      width: 100px;
+      height: 100px;
       margin-right: 20px;
       margin-bottom: 0;
     }

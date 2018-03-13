@@ -1,12 +1,10 @@
-<div class="container">
-  <div class="episode">
-    <div class="episode-card">
-      <div class="episode-title"><%= @episode.title %></div>
-      <small><p style="margin-top:-10px"> <%= @episode.published_date.strftime("Published: %F") %> | <a href="<%= @episode.url %>">Listen on Podbean</a></p></small>
-      <%= sanitize(@episode.description) %>
-      <audio controls>
-        <source src="<%= @episode.audio_url %>" type="<%= @episode.audio_format %>">
-      </audio>
-    </div>
+<div class="episode">
+  <div class="episode-card">
+    <div class="episode-title"><%= @episode.title %></div>
+    <small><p style="margin-top:-10px"> <%= @episode.published_date.strftime("Published: %F") %> | <a href="<%= @episode.url %>">Listen on Podbean</a></p></small>
+    <%= sanitize(@episode.description) %>
+    <audio controls>
+      <source src="<%= @episode.audio_url %>" type="<%= @episode.audio_format %>">
+    </audio>
   </div>
 </div>

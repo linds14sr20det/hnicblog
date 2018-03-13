@@ -39,8 +39,8 @@ gem 'cocoon'
 gem 'font-awesome-rails'
 gem 'pdfkit'
 gem 'render_anywhere', require: false
-#TODO This needs to be set only on heroku prod
-gem 'wkhtmltopdf-heroku'
+gem 'font-awesome-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

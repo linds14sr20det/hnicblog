@@ -60,6 +60,7 @@ form {
 
 /* Footer */
 .footer {
+  width: 100%;
   position: relative;
   margin-top: -50px; /* negative value of footer height */
   height: 50px;
@@ -67,10 +68,12 @@ form {
   padding-top: 20px;
   background: #333333;
   z-index: 3;
+  i {
+    color: white;
+  }
 }
 
 /* Title row */
-
 .title-row {
   display: flex;
   align-items: center;
@@ -199,13 +202,16 @@ audio {
     -moz-transition: all 250ms;
     transition: all 250ms;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    .blog-post-card-content{
+      min-height: 100px;
+    }
     .blog-post-thumb-index {
       float: left;
       object-fit: cover;
       width:100px;
       height:100px;
       margin-right: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 0;
     }
   }
 }

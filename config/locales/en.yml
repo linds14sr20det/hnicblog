@@ -28,3 +28,7 @@ en:
     team_member:
       titles:
         other: "Other (Please Specify)"
+  social_links:
+    facebook: "https://www.facebook.com/HobbyNightInCanada/"
+    twitter: "https://twitter.com/hnicpodcast?lang=en"
+    instagram: "https://www.instagram.com/hobbynightincanada/"

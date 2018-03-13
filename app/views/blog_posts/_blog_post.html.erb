@@ -2,11 +2,13 @@
   <div class="col-md-12 blog-post">
     <div class="blog-post-card">
       <img class="blog-post-thumb-index" src="<%= post.first_image %>">
-      <div class="blog-post-title">
-        <%= link_to(post.title, blog_post_path(post)) %>
+      <div class="blog-post-card-content">
+        <div class="blog-post-title">
+          <%= link_to(post.title, blog_post_path(post)) %>
+        </div>
+        <small><p style="margin-top:-10px"> <%= post.publish_date.strftime("Published: %F") %> by <%= post.user.nil? ? 'unknown' : post.user.name %></p></small>
+        <%= truncate(strip_tags(post.body), :length => 120)  %>
       </div>
-      <small><p style="margin-top:-10px"> <%= post.publish_date.strftime("Published: %F") %> by <%= post.user.nil? ? 'unknown' : post.user.name %></p></small>
-      <%= truncate(strip_tags(post.body), :length => 120)  %>
     </div>
   </div>
 </div>

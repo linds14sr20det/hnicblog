@@ -18,10 +18,14 @@
   <%= yield %>
   <script>
       $.fraola_initializer = {
+          toolbarSticky: true,
           toolbarStickyOffset: 50,
           key: 'PG-10dpj1xB3wwdqwI2J3B10B7B7A5F4igqknsfxyG5hcj1==',
           imageUploadToS3: <%= @aws_data.to_json.html_safe %>,
           toolbarButtons: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertImage'],
+          toolbarButtonsMD: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertImage'],
+          toolbarButtonsSM: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', '|', 'insertLink', 'insertImage'],
+          toolbarButtonsXS: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', '|', 'insertLink', 'insertImage'],
           linkList: [
               {
                   text: 'Games Workshop',

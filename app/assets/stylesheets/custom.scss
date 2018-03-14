@@ -23,6 +23,7 @@ form {
 }
 
 .container {
+  overflow-x: hidden;
   height: 100%;
   padding: 90px 10px 32px 10px;
 }
@@ -202,6 +203,7 @@ audio {
     font-size: 30px;
     top: 50%;
     margin-bottom: 10px;
+    line-height: 26px;
   }
   img{
     border: 1px solid #c2c2c2;
@@ -226,6 +228,9 @@ audio {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     .blog-post-card-content{
       min-height: 100px;
+      small {
+        color: #b5b5b5;
+      }
     }
     .blog-post-thumb-index {
       float: left;
@@ -233,7 +238,7 @@ audio {
       width: 100px;
       height: 100px;
       margin-right: 20px;
-      margin-bottom: 0;
+      margin-bottom: 5px;
     }
   }
 }

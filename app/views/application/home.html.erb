@@ -11,6 +11,16 @@
 <!--This is a dirty hack to get the vh to expand when scrolling down-->
 <script>
     $(document).ready(function() {
-        $('.home-ctas').css({height: window.innerHeight - 172});
+        setHeight();
     });
+
+    $( window ).on( "orientationchange", function( event ) {
+        setHeight();
+    });
+
+    function setHeight () {
+        setTimeout(function () {
+            $('.home-ctas').css({height: window.innerHeight - 172});
+        }, 0);
+    }
 </script>

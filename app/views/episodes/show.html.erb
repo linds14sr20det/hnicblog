@@ -1,5 +1,5 @@
 <% provide(:title, @episode.title) %>
-<% provide(:meta_description, truncate(strip_tags(@episode.body), :length => 120)) %><div class="episode">
+<% provide(:meta_description, truncate(strip_tags(@episode.description), :length => 120)) %><div class="episode">
   <div class="episode-card">
     <div class="episode-title"><%= @episode.title %></div>
     <small><p style="margin-top:-10px"> <%= @episode.published_date.strftime("Published: %F") %> | <a href="<%= @episode.url %>">Listen on Podbean</a></p></small>

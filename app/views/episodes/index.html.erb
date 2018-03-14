@@ -1,3 +1,5 @@
+<% provide(:title, 'All Posts') %>
+<% provide(:meta_description, t('seo.episodes')) %>
 <%= render @episodes %>
 <div class="row">
   <div class="col-lg-12"><%= will_paginate %></div>

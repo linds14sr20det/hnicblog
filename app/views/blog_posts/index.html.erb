@@ -1,4 +1,5 @@
 <% provide(:title, 'All Posts') %>
+<% provide(:meta_description, t('seo.blog_posts')) %>
 <% unless @posts.nil? %>
   <% @posts.each do |post| %>
     <%= render :partial => 'blog_post', :locals => {:post => post} %>

@@ -7,3 +7,10 @@
     <div class="sg-home blog"><p>blog</p></div>
   <% end %>
 </div>
+
+<!--This is a dirty hack to get the vh to expand when scrolling down-->
+<script>
+    $(document).ready(function() {
+        $('.home-ctas').css({height: window.innerHeight - 172});
+    });
+</script>

@@ -114,39 +114,37 @@ span.picture {
   text-decoration: none;
 }
 
-.home-ctas {
-  .sg-spacer {
-    height: 5%;
+.sg-spacer {
+  height: 5%;
+}
+.sg-home {
+  height: 47.5%;
+  max-height: 300px;
+  max-width: 1028px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  resize: vertical;
+  margin: 0 auto;
+  padding: 0;
+  &.episode {
+    background: image-url("Banner1.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
   }
-  .sg-home {
-    height: 47.5%;
-    max-height: 300px;
-    max-width: 1028px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    resize: vertical;
-    margin: 0 auto;
-    padding: 0;
-    &.episode {
-      background: image-url("Banner1.jpg");
-      background-size: cover;
-      background-position: 50% 50%;
-    }
-    &.blog {
-      background: image-url("necro.jpg");
-      background-size: cover;
-      background-position: 50% 50%;
-    }
-    p {
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 40px;
-      color: white;
-      top: 50%;
-      margin-bottom: 0;
-    }
+  &.blog {
+    background: image-url("necro.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  p {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 40px;
+    color: white;
+    top: 50%;
+    margin-bottom: 0;
   }
 }
 

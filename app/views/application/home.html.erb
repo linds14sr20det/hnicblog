@@ -1,12 +1,10 @@
-<div class="home-ctas">
-  <%= link_to episodes_path, class: "banner-link" do %>
-    <div class="sg-home episode"><p>episodes</p></div>
-  <% end %>
-  <div class="sg-spacer"></div>
-  <%= link_to blog_posts_path, class: "banner-link" do %>
-    <div class="sg-home blog"><p>blog</p></div>
-  <% end %>
-</div>
+<%= link_to episodes_path, class: "banner-link" do %>
+  <div class="sg-home episode"><p>episodes</p></div>
+<% end %>
+<div class="sg-spacer"></div>
+<%= link_to blog_posts_path, class: "banner-link" do %>
+  <div class="sg-home blog"><p>blog</p></div>
+<% end %>
 
 <!--This is a dirty hack to get the vh to expand when scrolling down-->
 <script>
@@ -20,7 +18,7 @@
 
     function setHeight () {
         setTimeout(function () {
-            $('.home-ctas').css({height: window.innerHeight - 172});
-        }, 75);
+            $('.container').css({height: window.innerHeight - 50});
+        }, 100);
     }
 </script>

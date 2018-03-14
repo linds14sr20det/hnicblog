@@ -9,8 +9,13 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
-html, body {
-  height: 100%;
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 50px;
 }
 
 form {
@@ -18,10 +23,8 @@ form {
 }
 
 .container {
-  overflow: auto;
-  padding-bottom: 60px;
   height: 100%;
-  padding-top: 90px;
+  padding: 90px 10px 32px 10px;
 }
 
 /* header */
@@ -36,10 +39,10 @@ form {
   display: block;
 }
 .navbar-collapse.collapse {
-  display: none!important;
+  display: none !important;
 }
 .navbar-nav {
-  float: none!important;
+  float: none !important;
 }
 .navbar-nav>li {
   float: none;
@@ -48,7 +51,7 @@ form {
   margin-top: 45px;
 }
 .navbar-collapse.collapse.in{
-  display:block !important;
+  display: block !important;
 }
 
 .logo-text {
@@ -70,11 +73,11 @@ form {
 
 /* Footer */
 .footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  position: relative;
-  margin-top: -50px; /* negative value of footer height */
   height: 50px;
-  clear: both;
+  line-height: 60px;
   background: #222222;
   z-index: 3;
   -webkit-box-shadow: 0 -3px 15px 0 rgba(0, 0, 0, 0.65);
@@ -107,42 +110,48 @@ span.picture {
   }
 }
 
-.sg-spacer {
-  height: 5%;
-}
+
 
 .banner-link {
   text-decoration: none;
 }
 
-.sg-home {
-  height: 42%;
-  max-height: 300px;
-  max-width: 1028px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  resize: vertical;
-  margin: 0 auto;
-  padding: 0;
-  &.episode {
-    background: image-url("Banner1.jpg");
-    background-size: cover;
-    background-position :50% 50%;
+.home-ctas {
+  height: -webkit-calc(100vh - 172px);
+  height: -moz-calc(100vh - 172px);
+  height: calc(100vh - 172px);
+  .sg-spacer {
+    height: 5%;
   }
-  &.blog {
-    background: image-url("Banner1.jpg");
-    background-size: cover;
-    background-position: 50% 50%;
-  }
-  p {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 40px;
-    color: white;
-    top: 50%;
-    margin-bottom: 0;
+  .sg-home {
+    height: 47.5%;
+    max-height: 300px;
+    max-width: 1028px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    resize: vertical;
+    margin: 0 auto;
+    padding: 0;
+    &.episode {
+      background: image-url("Banner1.jpg");
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+    &.blog {
+      background: image-url("necro.jpg");
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+    p {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 40px;
+      color: white;
+      top: 50%;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -172,10 +181,10 @@ span.picture {
 }
 
 .episode {
-  margin-bottom: 32px;
   .episode-card{
     border: 1px solid #e2e2e2;
     padding: 12px;
+    margin-bottom: 24px;
     background: #f4f4f4;
     -webkit-transition: all 250ms;
     -moz-transition: all 250ms;
@@ -195,7 +204,6 @@ audio {
 }
 
 .blog-post {
-  margin-bottom: 32px;
   .blog-post-title {
     font-weight: 600;
     font-size: 30px;
@@ -217,6 +225,7 @@ audio {
   .blog-post-card{
     border: 1px solid #e2e2e2;
     padding: 12px;
+    margin-bottom: 24px;
     background: #f4f4f4;
     -webkit-transition: all 250ms;
     -moz-transition: all 250ms;

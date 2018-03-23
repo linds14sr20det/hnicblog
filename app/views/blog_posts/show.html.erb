@@ -1,6 +1,6 @@
 <% provide(:title, @post.title) %>
 <% provide(:meta_description, truncate(strip_tags(@post.body), :length => 120)) %>
-<div class="blog-post">
+<div class="blog-post well">
   <div class="blog-post-title"><%= @post.title %></div>
   <small><p>Posted on <%= @post.publish_date.strftime("Published: %F") %> by <%= @post.user.nil? ? 'unknown' : @post.user.name %></p></small>
   <%= sanitize(@post.body) %>

@@ -120,7 +120,6 @@ GEM
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    pdfkit (0.8.2)
     pg (0.21.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -231,7 +230,6 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
-  pdfkit
   pg (~> 0.21)
   pry-nav
   puma (~> 3.0)

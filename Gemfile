@@ -36,8 +36,6 @@ gem 'wysiwyg-rails'
 gem 'aws-sdk', '~> 2'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cocoon'
-gem 'font-awesome-rails'
-gem 'pdfkit'
 gem 'render_anywhere', require: false
 gem 'font-awesome-rails'
 

@@ -134,12 +134,12 @@ span.picture {
   margin: 0 auto;
   padding: 0;
   &.episode {
-    background: image-url("Banner1.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("knight_wraiths.jpg");
     background-size: cover;
     background-position: 50% 50%;
   }
   &.blog {
-    background: image-url("necro.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("tom_mercs.jpg");
     background-size: cover;
     background-position: 50% 50%;
   }
